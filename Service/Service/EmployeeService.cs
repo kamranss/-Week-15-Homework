@@ -1,4 +1,5 @@
-﻿using Domain.Models;
+﻿using DataAccess.Repositories;
+using Domain.Models;
 using Service.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -10,12 +11,30 @@ namespace Service.Service
 {
     internal class EmployeeService : IEmployeeService
     {
-        public Employee Create(Employee department)
+        EmployeeRepository employeeRepository;
+        private static int Id { get; set; }
+        public EmployeeService()
         {
-            throw new NotImplementedException();
+            employeeRepository = new EmployeeRepository();
+        }
+        public Employee Create(Employee employee)
+        {
+            Employee tempemployee = employeeRepository.Get(e => e.Name == employee.Name && e.Surname == employee.Surname);
+            if (tempemployee ==null)
+            {
+                tempemployee.Id = Id;
+                if (employeeRepository.Create(tempemployee))
+                {
+                    Id++;
+                    return tempemployee;
+                }
+                return null;
+            }
+            return null;
+
         }
 
-        public Employee Delete(int id, Employee department)
+        public Employee Delete(int id, Employee employee)
         {
             throw new NotImplementedException();
         }
@@ -35,7 +54,7 @@ namespace Service.Service
             throw new NotImplementedException();
         }
 
-        public Employee Update(Employee department)
+        public Employee Update(Employee employee)
         {
             throw new NotImplementedException();
         }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Service.Interfaces
 {
-    public interface IStudentService
+    public interface IEmployeeService
     {
         Employee Create(Employee department);
         Employee Update(Employee department);
