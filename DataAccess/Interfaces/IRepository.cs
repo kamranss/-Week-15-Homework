@@ -9,9 +9,9 @@ namespace DataAccess.Interfaces
 {
     internal interface IRepository<T> where T:IBaseInterface
     {
-        bool Create();
-        bool Delete();
-        bool Update();
+        bool Create(T entity);
+        bool Delete(T entity);
+        bool Update(T entity);
 
         T Get(Predicate<T> filter = null);
         List<T> GetAll(Predicate<T> filter = null);

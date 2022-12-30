@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Interfaces
 {
-    internal interface IBaseInterface
+    public interface IBaseInterface
     {
         public int Id { get; set; }
     }

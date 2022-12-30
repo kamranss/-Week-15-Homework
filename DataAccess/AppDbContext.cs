@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess
 {
-    internal class AppDbContext
+    public class AppDbContext
     {
         public static List<Employee> Employees = new List<Employee>();
         public static List<Department> Departments = new List<Department>();

@@ -11,6 +11,7 @@ namespace DataAccess.Repositories
 {
     public class DepartmentRepository : IRepository<Department>
     {
+        #region I repository Methods Implemented
         public bool Create(Department entity)
         {
             try
@@ -83,5 +84,6 @@ namespace DataAccess.Repositories
                 throw;
             }
         }
+        #endregion
     }
 }
