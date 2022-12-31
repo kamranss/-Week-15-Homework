@@ -19,14 +19,14 @@ namespace Service.Service
         }
         public Employee Create(Employee employee)
         {
-            Employee tempemployee = employeeRepository.Get(e => e.Name == employee.Name && e.Surname == employee.Surname);
-            if (tempemployee ==null)
+            Employee employee1 = employeeRepository.Get(e => e.Name == employee.Name && e.Surname == employee.Surname);
+            if (employee1 ==null)
             {
-                tempemployee.Id = Id;
-                if (employeeRepository.Create(tempemployee))
+                employee1.Id = Id;
+                if (employeeRepository.Create(employee1))
                 {
                     Id++;
-                    return tempemployee;
+                    return employee1;
                 }
                 return null;
             }
@@ -36,7 +36,13 @@ namespace Service.Service
 
         public Employee Delete(int id, Employee employee)
         {
-            throw new NotImplementedException();
+            Employee employee2 = employeeRepository.Get(e => e.Id == Id);
+            if (employee2 != null)
+            {
+                employeeRepository.Delete(employee2);
+                return employee2;
+            }
+            return null;
         }
 
         public Employee Get(int id)
