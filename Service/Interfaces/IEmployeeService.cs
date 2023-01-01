@@ -9,9 +9,9 @@ namespace Service.Interfaces
 {
     public interface IEmployeeService
     {
-        Employee Create(Employee department);
-        Employee Update(Employee department);
-        Employee Delete(int id, Employee department);
+        Employee Create(Employee employee);
+        Employee Update(Employee employee);
+        Employee Delete(int id, Employee employee);
         Employee Get(int id);
         Employee Get(string name);
         List<Employee> GetAll(string name);

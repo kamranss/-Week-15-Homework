@@ -15,5 +15,6 @@ namespace Service.Interfaces
         Department Get(int id);
         Department Get(string name);
         List<Department> GetALL(string name);
+        List<Department> GetALL();
     }
 }

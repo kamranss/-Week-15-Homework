@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Company.Controller
 {
-    internal class DepartmentController
+    public class DepartmentController
     {
     }
 }

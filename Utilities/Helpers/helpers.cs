@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Utilities.Helpers
 {
-    internal class helpers
+    public class helpers
     {
+
     }
 }

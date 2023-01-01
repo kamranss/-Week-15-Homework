@@ -20,7 +20,8 @@ bool selection = int.TryParse(menuoption, out selectedbutton);
 
 DepartmentService departmentService = new DepartmentService();
 
-while (true)
+bool whileresult = true;
+while (whileresult)
 {
     if (selectedbutton > 0 && selectedbutton < 10)
     {
@@ -41,13 +42,20 @@ while (true)
                     department.Capacity = selectedcapacity;
                     Department newdepartment = departmentService.Create(department);
                     Console.WriteLine($"{newdepartment.Id}  {newdepartment.Name}  {newdepartment.Capacity}");
-                    break;
+                    whileresult = false;
                 }
                 else
                 {
-                    Console.WriteLine("The capacity whihc you have given is wrong you shoud try again");
+                    Console.WriteLine("The capacity which you have given is wrong you shoud try again");
                     goto Departmentcapacityagain;
                 }
+                break;
+            case 7:
+                foreach (var item in departmentService.GetALL())
+                {
+                    Console.WriteLine($"{item.Id} {item.Name} {item.Capacity}");
+                }
+                break;
                 
             default:
                 break;

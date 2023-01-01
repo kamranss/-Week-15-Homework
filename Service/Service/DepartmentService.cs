@@ -74,5 +74,19 @@ namespace Service.Service
         {
             throw new NotImplementedException();
         }
+
+        public List<Department> GetALL()
+        {
+            try
+            {
+                List<Department> departments = departmentRepository.GetAll();
+                return departments;
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+        }
     }
 }
