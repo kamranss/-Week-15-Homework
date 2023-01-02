@@ -18,7 +18,7 @@ using Utilities.Helpers;
 //    "9 - ExitProgram");
 //Console.ResetColor();
 
-Helper.consolemessage(ConsoleColor.DarkMagenta, Helper.message1, Helper.message2);
+Helper.consolemessage(ConsoleColor.DarkMagenta, ConsoleMessages.message1);
 
 string menuoption = Console.ReadLine();
 int selectedbutton;
@@ -34,10 +34,9 @@ while (whileresult)
         switch (selectedbutton)
         {
             case 1:
-                Console.WriteLine(" Please Write Department Name-> Note:" +
-                    "For your information first we will check whether this Department exist in DataBase or not");
+                Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.message2);
                 string name = Console.ReadLine();
-                Departmentcapacityagain: Console.WriteLine("Please write Department capacity");
+                Departmentcapacityagain: Helper.consolemessage(ConsoleColor.Cyan, ConsoleMessages.message3);
                 string maxcapacity = Console.ReadLine();
                 int selectedcapacity;
                 bool endcapacity = int.TryParse(maxcapacity, out selectedcapacity);

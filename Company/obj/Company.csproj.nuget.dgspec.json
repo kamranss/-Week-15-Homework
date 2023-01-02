@@ -265,7 +265,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\kamra\\source\\repos\\Company\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\kamra\\source\\repos\\Company\\Domain\\Domain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
