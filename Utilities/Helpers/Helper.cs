@@ -9,9 +9,9 @@ namespace Utilities.Helpers
     public static class Helper
     {
 
-        enum MyEnum
+        enum  Buttons
         {
-        CreateDepartment,
+        CreateDepartment =1,
         Update,
         Delete,
         GetbyId,

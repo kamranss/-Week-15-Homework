@@ -14,7 +14,7 @@ namespace Company.Controller
         DepartmentService departmentService;
         public DepartmentController()
         {
-            departmentServce = new DepartmentService();
+            departmentService = new DepartmentService();
         }
         public  void CreateDepartment()
         {
@@ -39,6 +39,15 @@ namespace Company.Controller
             {
                 Helper.consolemessage(ConsoleColor.DarkRed, ConsoleMessages.wrongCapacity);
                 goto Departmentcapacityagain;
+            }
+        }
+
+        public void GetAllDepartments()
+        {
+            Helper.consolemessage(ConsoleColor.DarkCyan, "Following Departments exist in DataBase");
+            foreach (var item in departmentService.GetALL())
+            {
+                Helper.consolemessage(ConsoleColor.DarkGray, $"{item.Id} {item.Name} {item.Capacity}");
             }
         }
     }
