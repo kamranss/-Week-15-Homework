@@ -38,6 +38,16 @@
         "runtime": {
           "bin/placeholder/Service.dll": {}
         }
+      },
+      "Utilities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Utilities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Utilities.dll": {}
+        }
       }
     }
   },
@@ -56,11 +66,17 @@
       "type": "project",
       "path": "../Service/Service.csproj",
       "msbuildProject": "../Service/Service.csproj"
+    },
+    "Utilities/1.0.0": {
+      "type": "project",
+      "path": "../Utilities/Utilities.csproj",
+      "msbuildProject": "../Utilities/Utilities.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Service >= 1.0.0"
+      "Service >= 1.0.0",
+      "Utilities >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -92,6 +108,9 @@
           "projectReferences": {
             "C:\\Users\\kamra\\source\\repos\\Company\\Service\\Service.csproj": {
               "projectPath": "C:\\Users\\kamra\\source\\repos\\Company\\Service\\Service.csproj"
+            },
+            "C:\\Users\\kamra\\source\\repos\\Company\\Utilities\\Utilities.csproj": {
+              "projectPath": "C:\\Users\\kamra\\source\\repos\\Company\\Utilities\\Utilities.csproj"
             }
           }
         }

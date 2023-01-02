@@ -2,17 +2,23 @@
 
 using Domain.Models;
 using Service.Service;
+using Utilities.Helpers;
 
-Console.WriteLine("Please choose one of the option from Menu bar");
-Console.WriteLine(
-    "1 - Create Department: " +
-    "2 - Update: " +
-    "3 - Delete: " +
-    "4 - GetbyId: " +
-    "5 - GetbyName: " +
-    "6 - GetAllbyMaxsize" +
-    "7 - GetAll" +
-    "8 - GetAllbyName");
+//Console.ForegroundColor = ConsoleColor.DarkMagenta;
+//Console.WriteLine("Please choose one of the option from Menu bar");
+//Console.Write(
+//    "1 - Create Department:\n" +
+//    "2 - Update:\n" +
+//    "3 - Delete:\n" +
+//    "4 - GetbyId:\n" +
+//    "5 - GetbyName:\n" +
+//    "6 - GetAllbyMaxsize\n" +
+//    "7 - GetAll\n" +
+//    "8 - GetAllbyName\n" +
+//    "9 - ExitProgram");
+//Console.ResetColor();
+
+Helper.consolemessage(ConsoleColor.DarkMagenta, Helper.message1, Helper.message2);
 
 string menuoption = Console.ReadLine();
 int selectedbutton;
@@ -42,7 +48,7 @@ while (whileresult)
                     department.Capacity = selectedcapacity;
                     Department newdepartment = departmentService.Create(department);
                     Console.WriteLine($"{newdepartment.Id}  {newdepartment.Name}  {newdepartment.Capacity}");
-                    whileresult = false;
+                    
                 }
                 else
                 {
@@ -56,9 +62,17 @@ while (whileresult)
                     Console.WriteLine($"{item.Id} {item.Name} {item.Capacity}");
                 }
                 break;
+            case 9:
+                whileresult = false;
+                break;
                 
             default:
                 break;
         }
+        
+    }
+    else
+    {
+        Console.WriteLine("Choose correct option");
     }
 }

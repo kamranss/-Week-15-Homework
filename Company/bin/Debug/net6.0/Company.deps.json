@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v6.0": {
       "Company/1.0.0": {
         "dependencies": {
-          "Service": "1.0.0"
+          "Service": "1.0.0",
+          "Utilities": "1.0.0"
         },
         "runtime": {
           "Company.dll": {}
@@ -35,6 +36,11 @@
         "runtime": {
           "Service.dll": {}
         }
+      },
+      "Utilities/1.0.0": {
+        "runtime": {
+          "Utilities.dll": {}
+        }
       }
     }
   },
@@ -55,6 +61,11 @@
       "sha512": ""
     },
     "Service/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Utilities/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

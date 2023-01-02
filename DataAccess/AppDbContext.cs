@@ -13,7 +13,7 @@ namespace DataAccess
         public static List<Employee> Employees = new List<Employee>();
         public static List<Department> Departments = new List<Department>();
 
-        public AppDbContext()
+        static AppDbContext()
         {
             Employees = new List<Employee>();
             Departments = new List<Department>();
