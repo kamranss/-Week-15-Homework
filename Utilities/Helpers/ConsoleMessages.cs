@@ -28,6 +28,6 @@ namespace Utilities.Helpers
 
         public static string wrongCapacity = "The capacity which you have given is wrong you shoud try again";
 
-        //public static string departmentsfullInfo = Console.WriteLine($"{newdepartment.Id} {newdepartment.Name}  {newdepartment.Capacity}");
+        
     }
 }

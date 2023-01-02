@@ -10,3 +10,6 @@ C:\Users\kamra\source\repos\Company\Utilities\obj\Debug\net6.0\Utilities.dll
 C:\Users\kamra\source\repos\Company\Utilities\obj\Debug\net6.0\refint\Utilities.dll
 C:\Users\kamra\source\repos\Company\Utilities\obj\Debug\net6.0\Utilities.pdb
 C:\Users\kamra\source\repos\Company\Utilities\obj\Debug\net6.0\ref\Utilities.dll
+C:\Users\kamra\source\repos\Company\Utilities\bin\Debug\net6.0\Domain.dll
+C:\Users\kamra\source\repos\Company\Utilities\bin\Debug\net6.0\Domain.pdb
+C:\Users\kamra\source\repos\Company\Utilities\obj\Debug\net6.0\Utilities.csproj.CopyComplete

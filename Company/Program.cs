@@ -18,7 +18,7 @@ using Utilities.Helpers;
 //    "9 - ExitProgram");
 //Console.ResetColor();
 
-Helper.consolemessage(ConsoleColor.DarkMagenta, ConsoleMessages.message1);
+Helper.consolemessage(ConsoleColor.DarkMagenta, ConsoleMessages.Options);
 
 string menuoption = Console.ReadLine();
 int selectedbutton;
@@ -34,9 +34,9 @@ while (whileresult)
         switch (selectedbutton)
         {
             case 1:
-                Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.message2);
+                Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.writeDepartmentName);
                 string name = Console.ReadLine();
-                Departmentcapacityagain: Helper.consolemessage(ConsoleColor.Cyan, ConsoleMessages.message3);
+                Departmentcapacityagain: Helper.consolemessage(ConsoleColor.Cyan, ConsoleMessages.writeDepartmentCapacity);
                 string maxcapacity = Console.ReadLine();
                 int selectedcapacity;
                 bool endcapacity = int.TryParse(maxcapacity, out selectedcapacity);
@@ -46,19 +46,21 @@ while (whileresult)
                     department.Name = name;
                     department.Capacity = selectedcapacity;
                     Department newdepartment = departmentService.Create(department);
-                    Console.WriteLine($"{newdepartment.Id}  {newdepartment.Name}  {newdepartment.Capacity}");
-                    
+                    Helper.consolemessage
+                    (ConsoleColor.Blue,
+                    $"Following Department Created\n ${newdepartment.Id} {newdepartment.Name}  {newdepartment.Capacity}");
+
                 }
                 else
                 {
-                    Console.WriteLine("The capacity which you have given is wrong you shoud try again");
+                    Helper.consolemessage(ConsoleColor.DarkRed, ConsoleMessages.wrongCapacity);
                     goto Departmentcapacityagain;
                 }
                 break;
             case 7:
                 foreach (var item in departmentService.GetALL())
                 {
-                    Console.WriteLine($"{item.Id} {item.Name} {item.Capacity}");
+                    Helper.consolemessage(ConsoleColor.DarkGray, $"{item.Id} {item.Name} {item.Capacity}");
                 }
                 break;
             case 9:
