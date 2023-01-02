@@ -9,9 +9,9 @@ namespace Utilities.Helpers
     public static class Helper
     {
 
-        enum  Buttons
+        public enum  Buttons
         {
-        CreateDepartment =1,
+        Create =1,
         Update,
         Delete,
         GetbyId,
@@ -41,7 +41,12 @@ namespace Utilities.Helpers
         //public static string message3 = "Please write Department capacity";
         #endregion
 
-
+        public static void MenuOption()
+        {
+            string menuoption = Console.ReadLine();
+            int selectedbutton;
+            bool selection = int.TryParse(menuoption, out selectedbutton);
+        }
 
         public static void consolemessage(ConsoleColor color,string message)
         {

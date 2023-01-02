@@ -41,9 +41,22 @@ namespace Service.Service
             }
         }
 
-        public Department Delete(int Id, Department department)
+        public Department Delete(int Id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Department tempDepartment = departmentRepository.Get(d => d.Id == Id);
+                if (tempDepartment != null)
+                {
+                    departmentRepository.Delete(tempDepartment);
+                    return tempDepartment;
+                }
+                return null;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public Department Get(int id)

@@ -41,6 +41,32 @@ namespace Company.Controller
                 goto Departmentcapacityagain;
             }
         }
+        public void DeleteDepartment()
+        {
+            GetAllDepartments();
+            try
+            {
+                Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.writeDepartmentId);
+                Department department = new Department();
+                string id = Console.ReadLine();
+                int endId;
+                bool selectedId = int.TryParse(id, out endId);
+                if (selectedId)
+                {
+                    if (selectedId != null)
+                    {
+                        departmentService.Delete(endId);
+                        Helper.consolemessage(ConsoleColor.Green, $" id {endId} {ConsoleMessages.departmentDeleted}");
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
+        }
 
         public void GetAllDepartments()
         {

@@ -35,23 +35,25 @@ while (whileresult)
     {
         switch (selectedbutton)
         {
-            case 1:               
+            case (int)Helper.Buttons.Create:               
                 departmentController.CreateDepartment();
                 break;
-            case 7:
+            case (int)Helper.Buttons.Delete:
+                departmentController.DeleteDepartment();
+                break;
+            case (int)Helper.Buttons.GetAll:
                 departmentController.GetAllDepartments();
                 break;
-            case 9:
+            case (int)Helper.Buttons.ExitProgram:
                 whileresult = false;
                 break;
                 
             default:
                 break;
-        }
-        
+        }       
     }
     else
     {
-        Console.WriteLine("Choose correct option");
+        Helper.consolemessage(ConsoleColor.DarkGreen, "Choose correct option");
     }
 }

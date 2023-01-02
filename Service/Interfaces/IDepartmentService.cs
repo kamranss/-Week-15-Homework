@@ -11,7 +11,7 @@ namespace Service.Interfaces
     {
         Department Create(Department department);
         Department Update(Department department);
-        Department Delete(int Id, Department department);
+        Department Delete(int Id);
         Department Get(int id);
         Department Get(string name);
         List<Department> GetALL(string name);
