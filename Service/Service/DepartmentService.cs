@@ -69,7 +69,7 @@ namespace Service.Service
             throw new NotImplementedException();
         }
 
-        public List<Department> GetALL(string name)
+        public List<Department> GetAllByName(string name)
         {
             try
             {
@@ -102,11 +102,11 @@ namespace Service.Service
             }
         }
 
-        public List<Department> GetAll(int capacity)
+        public List<Department> GetAllByCapacity(int capacity)
         {
             try
             {
-                Department department = departmentRepository.Get(d => d.Capacity >= capacity);
+                List<Department> department = departmentRepository.GetAll(d => d.Capacity == capacity);
                 return department;
             }
             catch (Exception)

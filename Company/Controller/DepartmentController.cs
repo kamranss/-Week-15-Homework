@@ -1,4 +1,5 @@
 ﻿using Domain.Models;
+using Service.Interfaces;
 using Service.Service;
 using System;
 using System.Collections.Generic;
@@ -83,6 +84,41 @@ namespace Company.Controller
             foreach (var item in departmentService.GetALL())
             {
                 Helper.consolemessage(ConsoleColor.DarkGray, $"{item.Id} {item.Name} {item.Capacity}");
+            }
+        }
+        public void GetAllDepartmentbyCapacity()
+        {
+            try
+            {
+            WriteidAgain: Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.writeDepartmentCapacity);
+                string stringcapacity = Console.ReadLine();
+                int size;
+                bool selectedcapacity = int.TryParse(stringcapacity, out size);
+                Helper.consolemessage(ConsoleColor.DarkCyan, "Following Departments exist in DataBase");
+                if (selectedcapacity)
+                {
+                    if (departmentService.GetAllByCapacity(size) != null)
+                    {
+                        foreach (var item in departmentService.GetAllByCapacity(size))
+                        {
+
+                        }
+                        Helper.consolemessage(ConsoleColor.Blue, $"Department not found with given capacity");
+                    }
+                    else
+                    {
+
+                    }
+                }
+                else
+                {
+                    Helper.consolemessage(ConsoleColor.Green, "You should use digits not letters");
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
     }

@@ -14,7 +14,8 @@ namespace Service.Interfaces
         Department Delete(int Id);
         Department Get(int id);
         Department Get(string name);
-        List<Department> GetALL(string name);
+        List<Department> GetAllByName(string name);
         List<Department> GetALL();
+        List<Department> GetAll(int capacity);
     }
 }
