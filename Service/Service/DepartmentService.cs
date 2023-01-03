@@ -101,5 +101,19 @@ namespace Service.Service
                 return null;
             }
         }
+
+        public List<Department> GetAll(int capacity)
+        {
+            try
+            {
+                Department department = departmentRepository.Get(d => d.Capacity >= capacity);
+                return department;
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+        }
     }
 }

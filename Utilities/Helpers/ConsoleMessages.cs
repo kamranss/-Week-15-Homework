@@ -23,11 +23,12 @@ namespace Utilities.Helpers
         public static string writeDepartmentName =
             " Please Write Department Name\n" +
             "Note: For your information first we will check whether this Department exist in DataBase or not";
-        public static string writeDepartmentId = "Write Department Id which will be deleted";
+        public static string writeDepartmentId = "Write Department Id which you want to delete";
         public static string writeDepartmentCapacity = "Please write Department capacity";
         public static string departmentDeleted = "Department deleted";
 
         public static string wrongCapacity = "The capacity which you have given is wrong you shoud try again";
+        public static string wrongId = " The Id whihc you have written was wrong you should write again";
 
 
         

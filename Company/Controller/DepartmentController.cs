@@ -46,18 +46,27 @@ namespace Company.Controller
             GetAllDepartments();
             try
             {
-                Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.writeDepartmentId);
-                Department department = new Department();
+                WriteidAgain: Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.writeDepartmentId);
                 string id = Console.ReadLine();
                 int endId;
                 bool selectedId = int.TryParse(id, out endId);
                 if (selectedId)
                 {
-                    if (selectedId != null)
+                    if (departmentService.Delete(endId) != null)
                     {
                         departmentService.Delete(endId);
                         Helper.consolemessage(ConsoleColor.Green, $" id {endId} {ConsoleMessages.departmentDeleted}");
+                        return;
                     }
+                    else
+                    {
+                        Helper.consolemessage(ConsoleColor.Blue, "Given Id is not exist in DataBase");
+                    }
+                }
+                else
+                {
+                    Helper.consolemessage(ConsoleColor.DarkGreen, ConsoleMessages.wrongId);
+                    goto WriteidAgain;
                 }
             }
             catch (Exception)
