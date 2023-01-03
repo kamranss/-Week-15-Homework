@@ -15,11 +15,12 @@ namespace Utilities.Helpers
        "3 - Delete:\n" +
        "4 - GetbyId:\n" +
        "5 - GetbyName:\n" +
-       "6 - GetAllbyMaxsize:\n" +
+       "6 - GetAllbyCapacity:\n" +
        "7 - GetAll:\n" +
        "8 - GetAllbyName:\n" +
        "9 - ExitProgram:";
 
+        #region Messages for Department
         public static string writeDepartmentName =
             " Please Write Department Name\n" +
             "Note: For your information first we will check whether this Department exist in DataBase or not";
@@ -29,8 +30,19 @@ namespace Utilities.Helpers
 
         public static string wrongCapacity = "The capacity which you have given is wrong you shoud try again";
         public static string wrongId = " The Id whihc you have written was wrong you should write again";
+        #endregion
 
+        #region messages for Employees
+        public static string writeEmployeeName =
+            " Please write employee name\n" +
+            "Note: For your information first we will check whether given Department exist in DataBase or not";
+
+        public static string writeEmployeeId = "Write Department Id which you want to delete";       
+        public static string employeeDeleted = "Department deleted";
 
         
+        #endregion
+
+
     }
 }

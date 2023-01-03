@@ -16,6 +16,6 @@ namespace Service.Interfaces
         Department Get(string name);
         List<Department> GetAllByName(string name);
         List<Department> GetALL();
-        List<Department> GetAll(int capacity);
+        List<Department> GetAllByCapacity(int capacity);
     }
 }

@@ -61,12 +61,30 @@ namespace Service.Service
 
         public Department Get(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Department department = departmentRepository.Get(d => d.Id == id);
+                return department;
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
         }
 
         public Department Get(string name)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Department department = departmentRepository.Get(d => d.Name == name);
+                return department;
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
         }
 
         public List<Department> GetAllByName(string name)

@@ -9,29 +9,39 @@ using System.Threading.Tasks;
 
 namespace Service.Service
 {
-    internal class EmployeeService : IEmployeeService
+    public class EmployeeService : IEmployeeService
     {
         EmployeeRepository employeeRepository;
+        private readonly DepartmentRepository departmentRepository;
         private static int Id { get; set; }
         public EmployeeService()
         {
             employeeRepository = new EmployeeRepository();
+            departmentRepository = new DepartmentRepository();
         }
-        public Employee Create(Employee employee)
+        public Employee Create(Employee employee, string departmentName)
         {
-            Employee employee1 = employeeRepository.Get(e => e.Name == employee.Name && e.Surname == employee.Surname);
-            if (employee1 ==null)
+            try
             {
-                employee1.Id = Id;
-                if (employeeRepository.Create(employee1))
+                Department department = departmentRepository.Get(d => d.Name == departmentName);
+                Employee employee1 = employeeRepository.Get(e => e.Name == employee.Name && e.Surname == employee.Surname);
+                if (department != null)
                 {
-                    Id++;
-                    return employee1;
+                    employee1.Id = Id;
+                    if (employeeRepository.Create(employee1))
+                    {
+                        Id++;
+                        return employee1;
+                    }
+                    return null;
                 }
                 return null;
             }
-            return null;
+            catch (Exception)
+            {
 
+                throw;
+            }
         }
 
         public Employee Delete(int id, Employee employee)

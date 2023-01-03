@@ -47,6 +47,9 @@ while (whileresult)
             case (int)Helper.Buttons.ExitProgram:
                 whileresult = false;
                 break;
+            case (int)Helper.Buttons.GetAllbyCapacity:
+                departmentController.GetAllDepartmentbyCapacity();
+                break;
                 
             default:
                 break;

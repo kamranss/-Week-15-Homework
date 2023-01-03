@@ -16,7 +16,7 @@ namespace Utilities.Helpers
         Delete,
         GetbyId,
         GetbyName,
-        GetAllbyMaxsize,
+        GetAllbyCapacity,
         GetAll,
         GetAllbyName,
         ExitProgram

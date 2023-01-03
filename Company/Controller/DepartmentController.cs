@@ -17,9 +17,10 @@ namespace Company.Controller
         {
             departmentService = new DepartmentService();
         }
+
         public  void CreateDepartment()
         {
-            Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.writeDepartmentName);
+            DepartmentNameAgain:  Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.writeDepartmentName);
             string name = Console.ReadLine();
             Departmentcapacityagain: Helper.consolemessage(ConsoleColor.Cyan, ConsoleMessages.writeDepartmentCapacity);
             string maxcapacity = Console.ReadLine();
@@ -31,6 +32,11 @@ namespace Company.Controller
                 department.Name = name;
                 department.Capacity = selectedcapacity;
                 Department newdepartment = departmentService.Create(department);
+                if (newdepartment == null)
+                {
+                    Helper.consolemessage(ConsoleColor.DarkRed, "Within the database same Department already exist");
+                    goto DepartmentNameAgain;
+                }
                 Helper.consolemessage
                 (ConsoleColor.Blue,
                 $"Following Department Created\n {newdepartment.Id} {newdepartment.Name}  {newdepartment.Capacity}");
@@ -90,7 +96,7 @@ namespace Company.Controller
         {
             try
             {
-            WriteidAgain: Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.writeDepartmentCapacity);
+                WriteCapacityAgain: WriteidAgain: Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.writeDepartmentCapacity);
                 string stringcapacity = Console.ReadLine();
                 int size;
                 bool selectedcapacity = int.TryParse(stringcapacity, out size);
@@ -101,7 +107,7 @@ namespace Company.Controller
                     {
                         foreach (var item in departmentService.GetAllByCapacity(size))
                         {
-
+                            Helper.consolemessage(ConsoleColor.DarkGray, $"{item.Id} {item.Name}");
                         }
                         Helper.consolemessage(ConsoleColor.Blue, $"Department not found with given capacity");
                     }
@@ -113,6 +119,7 @@ namespace Company.Controller
                 else
                 {
                     Helper.consolemessage(ConsoleColor.Green, "You should use digits not letters");
+                    goto WriteCapacityAgain;
                 }
             }
             catch (Exception)
