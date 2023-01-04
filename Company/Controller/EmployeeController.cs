@@ -21,13 +21,13 @@ namespace Company.Controller
 
         public void CreateEmployee()
         {
-            writeEmployeeName: Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.writeEmployeeName);
+            Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.writeEmployeeName);
             string name = Console.ReadLine();
             Helper.consolemessage(ConsoleColor.Cyan, ConsoleMessages.writeEmployeeSurname);
             string surname = Console.ReadLine();
             Helper.consolemessage(ConsoleColor.Cyan, ConsoleMessages.writeEmployeeAddress);
             string address = Console.ReadLine();
-            Helper.consolemessage(ConsoleColor.Cyan, ConsoleMessages.writeEmployeeAge);
+            writeEmployeeAge: Helper.consolemessage(ConsoleColor.Cyan, ConsoleMessages.writeEmployeeAge);
             string selectedAge = Console.ReadLine();
             int Age;
             bool endage = int.TryParse(selectedAge, out Age);
@@ -41,11 +41,12 @@ namespace Company.Controller
                 newemployee.Surname = surname;
                 newemployee.Age = Age;
                 newemployee.Address = address;
-                employeeService.Create(newemployee, departmentName);
-                if (newemployee.Id == null)
+                Employee employee = employeeService.Create(newemployee, departmentName);
+                if (employee.Id == null)
                 {
                     Helper.consolemessage(ConsoleColor.DarkRed, "Given Department is not exist within the Database");
                     goto departmentNameAgain;
+                    return;
                 }
                 else
                 {
@@ -56,12 +57,13 @@ namespace Company.Controller
                     $"{newemployee.Surname} " +
                     $"{newemployee.Department} " +
                     $"{newemployee.Address}");
+                    return;
                 }               
             }
             else
             {
                 Helper.consolemessage(ConsoleColor.DarkRed, ConsoleMessages.employeeNotCreated);
-                goto writeEmployeeName;
+                goto writeEmployeeAge;
                 return;
             }
             

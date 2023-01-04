@@ -24,6 +24,19 @@
         "runtime": {
           "bin/placeholder/Domain.dll": {}
         }
+      },
+      "Utilities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Utilities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Utilities.dll": {}
+        }
       }
     }
   },
@@ -37,12 +50,18 @@
       "type": "project",
       "path": "../Domain/Domain.csproj",
       "msbuildProject": "../Domain/Domain.csproj"
+    },
+    "Utilities/1.0.0": {
+      "type": "project",
+      "path": "../Utilities/Utilities.csproj",
+      "msbuildProject": "../Utilities/Utilities.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "DataAccess >= 1.0.0",
-      "Domain >= 1.0.0"
+      "Domain >= 1.0.0",
+      "Utilities >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -77,6 +96,9 @@
             },
             "C:\\Users\\kamra\\source\\repos\\Company\\Domain\\Domain.csproj": {
               "projectPath": "C:\\Users\\kamra\\source\\repos\\Company\\Domain\\Domain.csproj"
+            },
+            "C:\\Users\\kamra\\source\\repos\\Company\\Utilities\\Utilities.csproj": {
+              "projectPath": "C:\\Users\\kamra\\source\\repos\\Company\\Utilities\\Utilities.csproj"
             }
           }
         }

@@ -39,6 +39,7 @@ namespace Utilities.Helpers
         public const string writeEmployeeAge = "Please write employee Age\n";
         public const string writeEmployeeAddress = "Please write employee Address";
         public const string writeEmployeeDepartmentName = "Please write Department name which employee will be assigned";
+        public const string departmentNotExist = "Given Department is not exist within the Database";
 
         public const string employeeNotCreated = "Something Went Wrong --- > Employee not created";
 

@@ -4,8 +4,11 @@ using Service.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
+using Utilities.Exceptions;
+using Utilities.Helpers;
 
 namespace Service.Service
 {
@@ -38,15 +41,16 @@ namespace Service.Service
                 }
                 else
                 {
-                    Console.WriteLine("Given Department is not exist within the Database");
+                    throw new EmployeeException(ConsoleMessages.departmentNotExist);
                     return null;
                 }
                 
             }
-            catch (Exception)
+            catch (EmployeeException message)
             {
 
-                throw;
+                Console.WriteLine(message.Message);
+                return null;
             }
         }
 

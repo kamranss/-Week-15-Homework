@@ -36,19 +36,19 @@ while (whileresult)
     {
         switch (selectedbutton)
         {
-            case (int)Helper.Buttons.Create:               
+            case (int)Helper.Buttons.CreateDepartment:               
                 departmentController.CreateDepartment();
                 break;
-            case (int)Helper.Buttons.Delete:
+            case (int)Helper.Buttons.DeleteDepartment:
                 departmentController.DeleteDepartment();
                 break;
-            case (int)Helper.Buttons.GetAll:
+            case (int)Helper.Buttons.GetAllDepartment:
                 departmentController.GetAllDepartments();
                 break;
             case (int)Helper.Buttons.ExitProgram:
                 whileresult = false;
                 break;
-            case (int)Helper.Buttons.GetAllbyCapacity:
+            case (int)Helper.Buttons.GetDepartmentbyCapacity:
                 departmentController.GetAllDepartmentbyCapacity();
                 break;
             case (int)Helper.Buttons.CreateEmployee:

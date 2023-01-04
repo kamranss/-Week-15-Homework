@@ -30,7 +30,8 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "DataAccess": "1.0.0",
-          "Domain": "1.0.0"
+          "Domain": "1.0.0",
+          "Utilities": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Service.dll": {}
