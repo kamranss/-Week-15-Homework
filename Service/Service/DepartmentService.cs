@@ -12,7 +12,7 @@ namespace Service.Service
     public class DepartmentService : IDepartmentService
     {
         private readonly DepartmentRepository departmentRepository;
-        public static int Id { get; set; }
+        public static int Id { get; set; } = 1;
         public DepartmentService()
         {
             departmentRepository = new DepartmentRepository();

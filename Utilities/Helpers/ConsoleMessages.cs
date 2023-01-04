@@ -36,6 +36,8 @@ namespace Utilities.Helpers
         public const string writeEmployeeName = "Please write employee name\n";
         public const string writeEmployeeSurname = "Please write employee surname\n";
         public const string writeEmployeeAge = "Please write employee surname\n";
+        public const string writeEmployeeAddress = "Please write employee address";
+        public const string writeEmployeeDepartmentName = "Please write Department name which employee will be assigned";
 
         public static string writeEmployeeId = "Write Department Id which you want to delete";       
         public static string employeeDeleted = "Department deleted";

@@ -11,32 +11,37 @@ namespace Service.Service
 {
     public class EmployeeService : IEmployeeService
     {
-        EmployeeRepository employeeRepository;
-        private readonly DepartmentRepository departmentRepository;
-        private static int Id { get; set; }
+        private readonly EmployeeRepository employeeRepository;
+        private readonly DepartmentService departmentService;
+        private static int Id { get; set; } = 1;
         public EmployeeService()
         {
             employeeRepository = new EmployeeRepository();
-            departmentRepository = new DepartmentRepository();
+            departmentService = new DepartmentService();
         }
 
         public Employee Create(Employee employee, string departmentName)
         {
             try
             {
-                Department department = departmentRepository.Get(d => d.Name == departmentName);
-                Employee employee1 = employeeRepository.Get(e => e.Name == employee.Name && e.Surname == employee.Surname);
+                Department department = departmentService.Get(departmentName);
                 if (department != null)
                 {
-                    employee1.Id = Id;
-                    if (employeeRepository.Create(employee1))
+                    employee.Department = departmentName;
+                    if (employeeRepository.Create(employee))
                     {
                         Id++;
-                        return employee1;
+                        employee.Id = Id;
+                        return employee;
                     }
                     return null;
                 }
-                return null;
+                else
+                {
+                    Console.WriteLine("Given Department is not wxist within the Database");
+                    return null;
+                }
+                
             }
             catch (Exception)
             {
