@@ -12,9 +12,18 @@ namespace Service.Interfaces
         Employee Create(Employee employee, string departmentName);
         Employee Update(Employee employee);
         Employee Delete(int id, Employee employee);
-        Employee Get(int id);
-        Employee Get(string name);
+        Employee GetById(int id);
+        Employee GetByAge(int age);
+        Employee GetByName(string name);
+        Employee GetBySurname(string surname);
+
         List<Employee> GetAll(string name);
+        List<Employee> GetAll();
+        Employee GetByDepartmentId(string departmentId);
+        Employee GetByDepartmentName(string departmentName);
+
+        int GetAllEmployeeCount();
+        int GetEmployeeCountByDepartment();
 
     }
 }

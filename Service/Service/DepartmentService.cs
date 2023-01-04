@@ -21,7 +21,7 @@ namespace Service.Service
         {
             try
             {
-                Department tempdepartment = departmentRepository.Get(d => d.Name == department.Name);
+                Department tempdepartment = departmentRepository.Get(d => d.Name.ToLower() == department.Name.ToLower());
                 if (tempdepartment==null)
                 {
                     department.Id = Id;
@@ -77,8 +77,8 @@ namespace Service.Service
         {
             try
             {
-                Department department = departmentRepository.Get(d => d.Name == name);
-                return department;
+                Department department = departmentRepository.Get(d => d.Name.ToLower() == name.ToLower());
+                return department != null ? department : null;
             }
             catch (Exception)
             {

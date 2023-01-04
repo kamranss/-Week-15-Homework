@@ -33,13 +33,12 @@ namespace Utilities.Helpers
         #endregion
 
         #region messages for Employees
-        public static string writeEmployeeName =
-            " Please write employee name\n" +
-            "Note: For your information first we will check whether given Department exist in DataBase or not";
+        public const string writeEmployeeName = "Please write employee name\n";
+        public const string writeEmployeeSurname = "Please write employee surname\n";
+        public const string writeEmployeeAge = "Please write employee surname\n";
 
         public static string writeEmployeeId = "Write Department Id which you want to delete";       
         public static string employeeDeleted = "Department deleted";
-
         
         #endregion
 

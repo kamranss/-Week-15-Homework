@@ -19,6 +19,7 @@ namespace Service.Service
             employeeRepository = new EmployeeRepository();
             departmentRepository = new DepartmentRepository();
         }
+
         public Employee Create(Employee employee, string departmentName)
         {
             try
@@ -44,6 +45,11 @@ namespace Service.Service
             }
         }
 
+        public Employee Update(Employee employee)
+        {
+            throw new NotImplementedException();
+        }
+
         public Employee Delete(int id, Employee employee)
         {
             Employee employee2 = employeeRepository.Get(e => e.Id == Id);
@@ -55,12 +61,22 @@ namespace Service.Service
             return null;
         }
 
-        public Employee Get(int id)
+        public Employee GetById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Employee Get(string name)
+        public Employee GetByAge(int age)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Employee GetByName(string name)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Employee GetBySurname(string surname)
         {
             throw new NotImplementedException();
         }
@@ -70,7 +86,27 @@ namespace Service.Service
             throw new NotImplementedException();
         }
 
-        public Employee Update(Employee employee)
+        public List<Employee> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Employee GetByDepartmentId(string departmentId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Employee GetByDepartmentName(string departmentName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int GetAllEmployeeCount()
+        {
+            throw new NotImplementedException();
+        }
+
+        public int GetEmployeeCountByDepartment()
         {
             throw new NotImplementedException();
         }
