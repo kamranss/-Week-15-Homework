@@ -11,13 +11,13 @@ namespace Utilities.Helpers
         public static string Options =
        "Please choose one of the option from Menu bar:\n" +
        "1 - Create Department:\n" +
-       "2 - Update:\n" +
-       "3 - Delete:\n" +
-       "4 - GetbyId:\n" +
-       "5 - GetbyName:\n" +
-       "6 - GetAllbyCapacity:\n" +
-       "7 - GetAll:\n" +
-       "8 - GetAllbyName:\n" +
+       "2 - UpdateDepartment:\n" +
+       "3 - DeleteDepartment:\n" +
+       "4 - GetDepartmentbyId:\n" +
+       "5 - GetDepartmentbyName:\n" +
+       "6 - GetDepartmentbyCapacity:\n" +
+       "7 - GetAllDepartment:\n" +
+       "8 - GetdepartmentbyName:\n" +
        "9 - CreateEmployee:\n"+
        "10 - ExitProgram:";
 

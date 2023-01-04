@@ -11,14 +11,14 @@ namespace Utilities.Helpers
 
         public enum  Buttons
         {
-        Create =1,
-        Update,
-        Delete,
-        GetbyId,
-        GetbyName,
-        GetAllbyCapacity,
-        GetAll,
-        GetAllbyName,
+        CreateDepartment =1,
+        UpdateDepartment,
+        DeleteDepartment,
+        GetDepartmentbyId,
+        GetDepartmentByName,
+        GetDepartmentbyCapacity,
+        GetAllDepartment,
+        GetAllDepartmentbyName,
         CreateEmployee,
         ExitProgram
         }

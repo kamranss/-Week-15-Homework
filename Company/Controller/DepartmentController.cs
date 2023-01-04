@@ -92,6 +92,14 @@ namespace Company.Controller
                 Helper.consolemessage(ConsoleColor.DarkGray, $"{item.Id} {item.Name} {item.Capacity}");
             }
         }
+        public void GetAllDepartmentsName()
+        {
+            Helper.consolemessage(ConsoleColor.DarkCyan, "Following Departments exist in DataBase");
+            foreach (var item in departmentService.GetALL())
+            {
+                Helper.consolemessage(ConsoleColor.DarkGray, $"{item.Name}");
+            }
+        }
         public void GetAllDepartmentbyCapacity()
         {
             try
@@ -126,6 +134,17 @@ namespace Company.Controller
             {
 
                 throw;
+            }
+        }
+        public void GetDepartmentbyName()
+        {
+
+            Helper.consolemessage(ConsoleColor.DarkCyan, "Please write Department Name");
+            string departmentName = Console.ReadLine();
+
+            foreach (var item in departmentService.GetAllByName(departmentName))
+            {
+                Helper.consolemessage(ConsoleColor.DarkGray, $"{item.Id} {item.Name} {item.Capacity}");
             }
         }
     }
