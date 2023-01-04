@@ -18,7 +18,8 @@ namespace Utilities.Helpers
        "6 - GetAllbyCapacity:\n" +
        "7 - GetAll:\n" +
        "8 - GetAllbyName:\n" +
-       "9 - ExitProgram:";
+       "9 - CreateEmployee:\n"+
+       "10 - ExitProgram:";
 
         #region Messages for Department
         public static string writeDepartmentName =
@@ -33,11 +34,13 @@ namespace Utilities.Helpers
         #endregion
 
         #region messages for Employees
-        public const string writeEmployeeName = "Please write employee name\n";
-        public const string writeEmployeeSurname = "Please write employee surname\n";
-        public const string writeEmployeeAge = "Please write employee surname\n";
-        public const string writeEmployeeAddress = "Please write employee address";
+        public const string writeEmployeeName = "Please write employee Name\n";
+        public const string writeEmployeeSurname = "Please write employee Surname\n";
+        public const string writeEmployeeAge = "Please write employee Age\n";
+        public const string writeEmployeeAddress = "Please write employee Address";
         public const string writeEmployeeDepartmentName = "Please write Department name which employee will be assigned";
+
+        public const string employeeNotCreated = "Something Went Wrong --- > Employee not created";
 
         public static string writeEmployeeId = "Write Department Id which you want to delete";       
         public static string employeeDeleted = "Department deleted";

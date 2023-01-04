@@ -19,32 +19,52 @@ namespace Company.Controller
             employeeService = new EmployeeService();
         }
 
-        //public void CreateEmployee()
-        //{
-        //    Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.writeEmployeeName);
-        //    string name = Console.ReadLine();
-        //    Helper.consolemessage(ConsoleColor.Cyan, ConsoleMessages.writeEmployeeSurname);
-        //    string surname = Console.ReadLine();
-        //    Helper.consolemessage(ConsoleColor.Cyan, ConsoleMessages.writeEmployeeAge);
-        //    string age = Console.ReadLine();
-        //    int selectedage;
-        //    bool endage = int.TryParse(age ,out  selectedage);
-        //    if (endage)
-        //    {
-        //        Employee newemployee = new Employee();
-        //        newdepartment.Name = name;
-        //        newemployee.Capacity = selectedcapacity;
-        //        Department newdepartment = departmentService.Create(department);
-        //        Helper.consolemessage
-        //        (ConsoleColor.Blue,
-        //        $"Following Department Created\n {newdepartment.Id} {newdepartment.Name}  {newdepartment.Capacity}");
+        public void CreateEmployee()
+        {
+            writeEmployeeName: Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.writeEmployeeName);
+            string name = Console.ReadLine();
+            Helper.consolemessage(ConsoleColor.Cyan, ConsoleMessages.writeEmployeeSurname);
+            string surname = Console.ReadLine();
+            Helper.consolemessage(ConsoleColor.Cyan, ConsoleMessages.writeEmployeeAddress);
+            string address = Console.ReadLine();
+            Helper.consolemessage(ConsoleColor.Cyan, ConsoleMessages.writeEmployeeAge);
+            string selectedAge = Console.ReadLine();
+            int Age;
+            bool endage = int.TryParse(selectedAge, out Age);
+            departmentNameAgain: Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.writeEmployeeDepartmentName);
+            string departmentName = Console.ReadLine();
 
-        //    }
-        //    else
-        //    {
-        //        Helper.consolemessage(ConsoleColor.DarkRed, ConsoleMessages.wrongCapacity);
-        //        goto Departmentcapacityagain;
-        //    }
-        //}
+            if (endage)
+            {
+                Employee newemployee = new Employee();
+                newemployee.Name = name;
+                newemployee.Surname = surname;
+                newemployee.Age = Age;
+                newemployee.Address = address;
+                employeeService.Create(newemployee, departmentName);
+                if (newemployee.Id == null)
+                {
+                    Helper.consolemessage(ConsoleColor.DarkRed, "Given Department is not exist within the Database");
+                    goto departmentNameAgain;
+                }
+                else
+                {
+                    Helper.consolemessage(ConsoleColor.Blue,
+                    $"Following Employee Created\n " +
+                    $"{newemployee.Id} " +
+                    $"{newemployee.Name}  " +
+                    $"{newemployee.Surname} " +
+                    $"{newemployee.Department} " +
+                    $"{newemployee.Address}");
+                }               
+            }
+            else
+            {
+                Helper.consolemessage(ConsoleColor.DarkRed, ConsoleMessages.employeeNotCreated);
+                goto writeEmployeeName;
+                return;
+            }
+            
+        }
     }
 }

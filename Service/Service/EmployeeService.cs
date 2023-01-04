@@ -13,7 +13,7 @@ namespace Service.Service
     {
         private readonly EmployeeRepository employeeRepository;
         private readonly DepartmentService departmentService;
-        private static int Id { get; set; } = 1;
+        private static int Id { get; set; }
         public EmployeeService()
         {
             employeeRepository = new EmployeeRepository();
@@ -27,18 +27,18 @@ namespace Service.Service
                 Department department = departmentService.Get(departmentName);
                 if (department != null)
                 {
-                    employee.Department = departmentName;
                     if (employeeRepository.Create(employee))
                     {
                         Id++;
                         employee.Id = Id;
+                        employee.Department = department;
                         return employee;
                     }
                     return null;
                 }
                 else
                 {
-                    Console.WriteLine("Given Department is not wxist within the Database");
+                    Console.WriteLine("Given Department is not exist within the Database");
                     return null;
                 }
                 

@@ -19,6 +19,7 @@ namespace Utilities.Helpers
         GetAllbyCapacity,
         GetAll,
         GetAllbyName,
+        CreateEmployee,
         ExitProgram
         }
         #region Console Messages for Department

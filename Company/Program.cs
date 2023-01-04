@@ -22,6 +22,7 @@ using Utilities.Helpers;
 
 DepartmentService departmentService = new DepartmentService();
 DepartmentController departmentController = new DepartmentController();
+EmployeeController employeeController = new EmployeeController();
 
 bool whileresult = true;
 while (whileresult)
@@ -31,7 +32,7 @@ while (whileresult)
     int selectedbutton;
     bool selection = int.TryParse(menuoption, out selectedbutton);
 
-    if (selectedbutton > 0 && selectedbutton < 10)
+    if (selectedbutton > 0 && selectedbutton < 12)
     {
         switch (selectedbutton)
         {
@@ -49,6 +50,9 @@ while (whileresult)
                 break;
             case (int)Helper.Buttons.GetAllbyCapacity:
                 departmentController.GetAllDepartmentbyCapacity();
+                break;
+            case (int)Helper.Buttons.CreateEmployee:
+                employeeController.CreateEmployee();
                 break;
                 
             default:
