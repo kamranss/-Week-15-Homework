@@ -84,5 +84,22 @@ namespace Company.Controller
                 return;
             }
         }
+        public void UpdateEmployee()
+        {
+            Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.writeEmployeeIdForUpdate);
+            string selectedId = Console.ReadLine();
+            int id;
+            bool convertedId = int.TryParse(selectedId, out id);
+
+            Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.writeEmployeeName);
+            string name = Console.ReadLine();
+            Helper.consolemessage(ConsoleColor.Cyan, ConsoleMessages.writeEmployeeSurname);
+            string surname = Console.ReadLine();
+            Helper.consolemessage(ConsoleColor.Cyan, ConsoleMessages.writeEmployeeAddress);
+            string address = Console.ReadLine();
+            writeEmployeeAge: Helper.consolemessage(ConsoleColor.Cyan, ConsoleMessages.writeEmployeeAge);
+            string selectedAge = Console.ReadLine();
+            int Age;
+        }
     }
 }
