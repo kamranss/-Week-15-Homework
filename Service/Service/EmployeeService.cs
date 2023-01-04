@@ -54,9 +54,25 @@ namespace Service.Service
             }
         }
 
-        public Employee Update(Employee employee)
+        public Employee Update(int id, Employee employee, string departmentName)
         {
-            throw new NotImplementedException();
+            Employee updatedemployee = employeeRepository.Get(e => e.Id == id);
+            if (updatedemployee != null)
+            {
+                Department department = departmentService.Get(departmentName);
+                if (department != null)
+                {
+                    updatedemployee.Name = employee.Name;
+                    updatedemployee.Surname = employee.Surname;
+                    updatedemployee.Age = employee.Age;
+                    updatedemployee.Address = employee.Address;
+                    updatedemployee.Department = department;
+                    employeeRepository.Update(updatedemployee);
+                    return updatedemployee;
+                }
+                return null;
+            }
+            return null;
         }
 
         public Employee Delete(int id, Employee employee)
@@ -97,7 +113,16 @@ namespace Service.Service
 
         public List<Employee> GetAll()
         {
-            throw new NotImplementedException();
+            try
+            {
+                List<Employee> employees = employeeRepository.GetAll();
+                return employees;
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
         }
 
         public Employee GetByDepartmentId(string departmentId)

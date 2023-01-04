@@ -19,6 +19,7 @@ namespace Utilities.Helpers
        "7 - GetAllDepartment:\n" +
        "8 - GetdepartmentbyName:\n" +
        "9 - CreateEmployee:\n"+
+       "10 - GetAllEmployeesList:\n" +
        "10 - ExitProgram:";
 
         #region Messages for Department
@@ -34,6 +35,7 @@ namespace Utilities.Helpers
         #endregion
 
         #region messages for Employees
+        public const string employeesList = "Following Employees exist in the Database";
         public const string writeEmployeeName = "Please write employee Name\n";
         public const string writeEmployeeSurname = "Please write employee Surname\n";
         public const string writeEmployeeAge = "Please write employee Age\n";

@@ -70,5 +70,19 @@ namespace Company.Controller
             }
             
         }
+
+        public void GetAllEmployees()
+        {
+            Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.employeesList);
+            foreach (var item in employeeService.GetAll())            {
+                Helper.consolemessage(ConsoleColor.Blue,
+                  $"{item.Id} " +
+                  $"{item.Name}  " +
+                  $"{item.Surname} " +
+                  $"{item.Department.Name} " +
+                  $"{item.Address}");
+                return;
+            }
+        }
     }
 }

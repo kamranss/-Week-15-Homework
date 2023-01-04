@@ -20,6 +20,7 @@ namespace Utilities.Helpers
         GetAllDepartment,
         GetAllDepartmentbyName,
         CreateEmployee,
+        GetAllEmployeesList,
         ExitProgram
         }
         #region Console Messages for Department

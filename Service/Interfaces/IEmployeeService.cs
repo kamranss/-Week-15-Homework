@@ -10,7 +10,7 @@ namespace Service.Interfaces
     public interface IEmployeeService
     {
         Employee Create(Employee employee, string departmentName);
-        Employee Update(Employee employee);
+        Employee Update(int id, Employee employee, string departmentName);
         Employee Delete(int id, Employee employee);
         Employee GetById(int id);
         Employee GetByAge(int age);
