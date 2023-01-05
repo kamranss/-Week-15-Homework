@@ -125,11 +125,11 @@ namespace Company.Controller
                             foreach (var item in employeeService.GetAll())
                             {
                                 Helper.consolemessage(ConsoleColor.Blue,
-                                  $"{item.Id} " +
-                                  $"{item.Name}  " +
-                                  $"{item.Surname} " +
-                                  $"{item.Department.Name} " +
-                                  $"{item.Address}");                                
+                                $"Employee Id - {item.Id} " +
+                                $"Employee Name - {item.Name}  " +
+                                $"Employee Surname - {item.Surname} " +
+                                $"Department Name - {item.Department.Name} " +
+                                $"Employee Address - {item.Address}");
                             }
 
                         }

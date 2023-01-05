@@ -10,6 +10,8 @@ namespace DataAccess.Repositories
 {
     public class EmployeeRepository : IRepository<Employee>
     {
+       
+
         public bool Create(Employee entity)
         {
             try
@@ -68,6 +70,18 @@ namespace DataAccess.Repositories
                     return true;
                 }
                 return false;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public int Count(Employee entity)
+        {
+            try
+            {
+                return AppDbContext.Employees.Count(); ;
             }
             catch (Exception)
             {
