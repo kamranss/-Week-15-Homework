@@ -32,6 +32,7 @@ namespace Utilities.Helpers
         public const string writeDepartmentCapacity = "Please write Department capacity";
         public const string departmentDeleted = "Department deleted";
         public const string departmentNotExist = "Given Department is not exist within the Database";
+        public const string departmentWithThisIdNotExist = "Department with given Id not wxist in Database";
 
         public static string wrongCapacity = "The capacity which you have given is wrong you shoud try again";
         public static string wrongId = " The Id whihc you have written was wrong you should write again";

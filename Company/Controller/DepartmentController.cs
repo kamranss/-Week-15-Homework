@@ -67,7 +67,7 @@ namespace Company.Controller
                     }
                     else
                     {
-                        Helper.consolemessage(ConsoleColor.Blue, "Given Id is not exist in DataBase");
+                        Helper.consolemessage(ConsoleColor.Blue, ConsoleMessages.departmentWithThisIdNotExist);
                     }
                 }
                 else

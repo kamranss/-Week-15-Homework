@@ -21,6 +21,9 @@ namespace Company.Controller
         public EmployeeController()
         {
             employeeService = new EmployeeService();
+            employeeRepository = new EmployeeRepository();
+            departmentController1 = new DepartmentController();
+            departmentService1 = new DepartmentService();
         }
 
         public void CreateEmployee()
@@ -78,14 +81,14 @@ namespace Company.Controller
         public void GetAllEmployees()
         {
             Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.employeesList);
-            foreach (var item in employeeService.GetAll())            {
+            foreach (var item in employeeService.GetAll())
+            {
                 Helper.consolemessage(ConsoleColor.Blue,
-                  $"{item.Id} " +
-                  $"{item.Name}  " +
-                  $"{item.Surname} " +
-                  $"{item.Department.Name} " +
-                  $"{item.Address}");
-                return;
+                  $"Employee Id - {item.Id} " + 
+                  $"Employee Name - {item.Name}  " +
+                  $"Employee Surname - {item.Surname} " +
+                  $"Department Name - {item.Department.Name} " +
+                  $"Employee Address - {item.Address}");
             }
         }
         public void UpdateEmployee()
@@ -132,26 +135,26 @@ namespace Company.Controller
                         }
                         else
                         {
-                            Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.employeeAgeWrong);
+                            Helper.consolemessage(ConsoleColor.DarkRed, ConsoleMessages.employeeAgeWrong);
                             goto writeEmployeeAgeAgain;
                         }
                     }
                     else
                     {
-                        Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.departmentNotExist);
+                        Helper.consolemessage(ConsoleColor.DarkRed, ConsoleMessages.departmentNotExist);
                         goto writeDepartmentNameagain;
                     }
                     
                 }
                 else
                 {
-                    Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.employeeNotExist);
+                    Helper.consolemessage(ConsoleColor.DarkRed, ConsoleMessages.employeeNotExist);
                     goto WriteEmployeeIdAgain;
                 }
             }
             else
             {
-                Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.employeeIdWrong);
+                Helper.consolemessage(ConsoleColor.DarkRed, ConsoleMessages.employeeIdWrong);
                 goto WriteEmployeeIdAgain;
             }
            
