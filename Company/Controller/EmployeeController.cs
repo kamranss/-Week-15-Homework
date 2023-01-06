@@ -159,5 +159,10 @@ namespace Company.Controller
             }
            
         }
+        //public void CountEmployee()
+        //{
+        //    Employee newEmployee;
+        //    return employeeService.GetAllEmployeeCount(newEmployee);
+        //}
     }
 }

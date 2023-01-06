@@ -19,10 +19,10 @@ namespace Service.Interfaces
 
         List<Employee> GetAll(string name);
         List<Employee> GetAll();
-        Employee GetByDepartmentId(string departmentId);
-        Employee GetByDepartmentName(string departmentName);
+        List<Employee> GetByDepartmentId(int departmentId);
+        List<Employee> GetByDepartmentName(Department departmentName);
 
-        int GetAllEmployeeCount();
+        int GetAllEmployeeCount(List<Employee> employees);
         int GetEmployeeCountByDepartment();
 
     }

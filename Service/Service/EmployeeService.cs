@@ -146,7 +146,7 @@ namespace Service.Service
         {
             try
             {
-                List<Employee> employees = employeeRepository.Get(e => e.Name == name;
+                List<Employee> employees = employeeRepository.GetAll(e => e.Name == name);
                 return employees;
             }
             catch (Exception)
@@ -198,9 +198,18 @@ namespace Service.Service
             }
         }
 
-        public int GetAllEmployeeCount()
+        public int GetAllEmployeeCount(List<Employee> employees)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return employeeRepository.Count(employees);
+                 
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public int GetEmployeeCountByDepartment()

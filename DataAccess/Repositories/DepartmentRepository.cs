@@ -11,6 +11,12 @@ namespace DataAccess.Repositories
 {
     public class DepartmentRepository : IRepository<Department>
     {
+      
+
+        public int Count(List<Department> entity)
+        {
+            throw new NotImplementedException();
+        }
         #region I repository Methods Implemented
         public bool Create(Department entity)
         {

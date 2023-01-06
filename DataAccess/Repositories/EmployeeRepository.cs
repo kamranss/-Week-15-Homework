@@ -77,11 +77,11 @@ namespace DataAccess.Repositories
                 throw;
             }
         }
-        public int Count(Employee entity)
+        public int Count(List<Employee> entity)
         {
             try
             {
-                return AppDbContext.Employees.Count(); ;
+                return AppDbContext.Employees.Count();
             }
             catch (Exception)
             {
@@ -89,5 +89,7 @@ namespace DataAccess.Repositories
                 throw;
             }
         }
+
+      
     }
 }
