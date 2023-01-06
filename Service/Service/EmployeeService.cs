@@ -77,11 +77,11 @@ namespace Service.Service
 
         public Employee Delete(int id, Employee employee)
         {
-            Employee employee2 = employeeRepository.Get(e => e.Id == Id);
-            if (employee2 != null)
+            Employee deleteemployee = employeeRepository.Get(e => e.Id == Id);
+            if (deleteemployee != null)
             {
-                employeeRepository.Delete(employee2);
-                return employee2;
+                employeeRepository.Delete(deleteemployee);
+                return deleteemployee;
             }
             return null;
         }

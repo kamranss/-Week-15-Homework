@@ -36,7 +36,8 @@ namespace DataAccess.Repositories
         {
             try
             {
-                return filter != null ? AppDbContext.Employees.Find(filter) : AppDbContext.Employees[0];
+                Employee fakeEmployee = new Employee();
+                return filter != null ? AppDbContext.Employees.Find(filter) : fakeEmployee;
                 
             }
             catch (Exception)

@@ -120,33 +120,12 @@ namespace Company.Controller
                         bool convertedAge = int.TryParse(selectedAge, out Age);
                         if (convertedAge)
                         {
-                            if (Age != 0)
-                            {
-                                updatedemployee.Age = Age;
-                            }
-                            Employee updatedemployeeAge = employeeRepository.Get(e => e.Id == id);
-                            updatedemployee.Age = updatedemployeeAge.Age;
+                            updatedemployee.Age = Age== 0 ? updatedemployee.Age : Age;
+                            updatedemployee.Name = string.IsNullOrEmpty(name) ? updatedemployee.Name : name;
+                            updatedemployee.Surname = string.IsNullOrEmpty(surname) ? updatedemployee.Surname : surname;
+                            updatedemployee.Address = string.IsNullOrEmpty(address) ? updatedemployee.Address : address;
 
-                            if (name != null)
-                            {
-                                updatedemployee.Name = name; 
-                            }
-                            Employee updateemployeename = employeeRepository.Get(e => e.Id == id);
-                            updatedemployee.Name = updateemployeename.Name;
-
-                            if (surname != null)
-                            {
-                                updatedemployee.Surname = surname;
-                            }
-                            Employee updatedemployeesurname = employeeRepository.Get(e => e.Id == id);
-                            updatedemployee.Surname = updatedemployeesurname.Surname;
-                            
-                            if (address != null)
-                            {
-                                updatedemployee.Address = address;
-                            }
-                            Employee updatedemployeeaddress = employeeRepository.Get(e => e.Id == id);
-                            updatedemployee.Address = updatedemployeeaddress.Address;
+                           
                             
                             employeeService.Update(id, updatedemployee, departmentName);
                             Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.employeeUpdated);
@@ -187,10 +166,9 @@ namespace Company.Controller
             }
            
         }
-        //public void CountEmployee()
-        //{
-        //    Employee newEmployee;
-        //    return employeeService.GetAllEmployeeCount(newEmployee);
-        //}
+        public void countemployee()
+        {
+            employeeService.GetAllEmployeeCount();
+        }
     }
 }
