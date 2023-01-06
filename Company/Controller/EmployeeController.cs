@@ -120,6 +120,16 @@ namespace Company.Controller
                         bool convertedAge = int.TryParse(selectedAge, out Age);
                         if (convertedAge)
                         {
+                            if (name != null)
+                            {
+                                
+                            }
+                            else
+                            {
+                                Department olddepartment = departmentService.Get(selectedid);
+                                department.Name = olddepartment.Name;
+                                department.Capacity = olddepartment.Capacity;
+                            }
                             employeeService.Update(id, updatedemployee, departmentName);
                             Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.employeeUpdated);
                             foreach (var item in employeeService.GetAll())

@@ -101,9 +101,25 @@ namespace Service.Service
             }
         }
 
-        public Department Update(Department department)
+        public Department Update(Department department, int id)
         {
-            throw new NotImplementedException();
+            Department updatedepartment = departmentRepository.Get(e => e.Id == department.Id);
+            if (updatedepartment !=null)
+            {
+                Department updatedepartment1 = departmentRepository.Get(e => e.Name == department.Name);
+                if (updatedepartment == null)
+                {
+
+                    departmentRepository.Update(updatedepartment);
+                    return updatedepartment;
+                }
+                return null;
+            }
+            else
+            {
+                return null;
+            }
+           
         }
 
         public List<Department> GetALL()
@@ -133,5 +149,7 @@ namespace Service.Service
                 return null;
             }
         }
+
+        
     }
 }
