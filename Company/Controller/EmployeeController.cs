@@ -116,20 +116,38 @@ namespace Company.Controller
                         string address = Console.ReadLine();
                         writeEmployeeAgeAgain: Helper.consolemessage(ConsoleColor.Cyan, ConsoleMessages.writeEmployeeAge);
                         string selectedAge = Console.ReadLine();
-                        int Age;
+                        int Age=0;
                         bool convertedAge = int.TryParse(selectedAge, out Age);
                         if (convertedAge)
                         {
+                            if (Age != 0)
+                            {
+                                updatedemployee.Age = Age;
+                            }
+                            Employee updatedemployeeAge = employeeRepository.Get(e => e.Id == id);
+                            updatedemployee.Age = updatedemployeeAge.Age;
+
                             if (name != null)
                             {
-                                
+                                updatedemployee.Name = name; 
                             }
-                            else
+                            Employee updateemployeename = employeeRepository.Get(e => e.Id == id);
+                            updatedemployee.Name = updateemployeename.Name;
+
+                            if (surname != null)
                             {
-                                Department olddepartment = departmentService.Get(selectedid);
-                                department.Name = olddepartment.Name;
-                                department.Capacity = olddepartment.Capacity;
+                                updatedemployee.Surname = surname;
                             }
+                            Employee updatedemployeesurname = employeeRepository.Get(e => e.Id == id);
+                            updatedemployee.Surname = updatedemployeesurname.Surname;
+                            
+                            if (address != null)
+                            {
+                                updatedemployee.Address = address;
+                            }
+                            Employee updatedemployeeaddress = employeeRepository.Get(e => e.Id == id);
+                            updatedemployee.Address = updatedemployeeaddress.Address;
+                            
                             employeeService.Update(id, updatedemployee, departmentName);
                             Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.employeeUpdated);
                             foreach (var item in employeeService.GetAll())

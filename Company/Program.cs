@@ -32,12 +32,15 @@ while (whileresult)
     int selectedbutton;
     bool selection = int.TryParse(menuoption, out selectedbutton);
 
-    if (selectedbutton > 0 && selectedbutton < 12)
+    if (selectedbutton > 0 && selectedbutton < 15)
     {
         switch (selectedbutton)
         {
             case (int)Helper.Buttons.CreateDepartment:               
                 departmentController.CreateDepartment();
+                break;
+            case (int)Helper.Buttons.UpdateDepartment:
+                departmentController.UpdateDepartment();
                 break;
             case (int)Helper.Buttons.DeleteDepartment:
                 departmentController.DeleteDepartment();
