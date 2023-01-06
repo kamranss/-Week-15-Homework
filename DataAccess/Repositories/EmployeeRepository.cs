@@ -78,7 +78,7 @@ namespace DataAccess.Repositories
                 throw;
             }
         }
-        public int Count(List<Employee> entity)
+        public int Count()
         {
             try
             {

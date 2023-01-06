@@ -29,12 +29,18 @@ namespace Utilities.Helpers
             "Note: For your information first we will check whether this Department exist in DataBase or not";
 
         public const string writeDepartmentId = "Write Department Id which you want to delete";
+        public const string writedepartmentIdForUpdate = "Write Department Id which you want to update";
         public const string writeDepartmentCapacity = "Please write Department capacity";
+
+        public const string sameDepartmentExist = 
+        "Within the database there is existing Department with the same Name.\n " +
+        "You should choose another Name";
+
         public const string departmentDeleted = "Department deleted";
         public const string departmentNotExist = "Given Department is not exist within the Database";
-        public const string departmentWithThisIdNotExist = "Department with given Id not wxist in Database";
+        public const string departmentWithThisIdNotExist = "Department with given Id not exist in Database";
 
-        public static string wrongCapacity = "The capacity which you have given is wrong you shoud try again";
+        public static string wrongCapacity = "The capacity which you have given is wrong you shoud try again (Note use digits instead of letters";
         public static string wrongId = " The Id whihc you have written was wrong you should write again";
         #endregion
 

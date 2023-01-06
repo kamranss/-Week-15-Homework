@@ -9,7 +9,7 @@ namespace Domain.Models
 {
     public class Employee : IBaseInterface
     {
-        public int Id { get ; set ; }
+        public int? Id { get ; set ; }
         public string Name { get; set; }
         public string Surname { get; set; }
         public int Age { get; set; }

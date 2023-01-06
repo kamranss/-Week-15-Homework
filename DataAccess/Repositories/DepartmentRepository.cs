@@ -11,13 +11,21 @@ namespace DataAccess.Repositories
 {
     public class DepartmentRepository : IRepository<Department>
     {
-      
 
-        public int Count(List<Department> entity)
-        {
-            throw new NotImplementedException();
-        }
+
         #region I repository Methods Implemented
+        public int Count()
+        {
+            try
+            {
+                return AppDbContext.Employees.Count();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         public bool Create(Department entity)
         {
             try

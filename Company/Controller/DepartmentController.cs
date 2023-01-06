@@ -85,64 +85,58 @@ namespace Company.Controller
         }
         public void UpdateDepartment()
         {
-            DepartmentIdAgain: Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.writeDepartmentId);
-            string id = Console.ReadLine();
-            int selectedid;
-            bool endId = int.TryParse(id, out selectedid);
+            DepartmentIdAgain: Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.writedepartmentIdForUpdate);
+            string selectedId = Console.ReadLine();
+            int departmentId;
+            bool checkId = int.TryParse(selectedId, out departmentId);
             
-            if (endId)
+            if (checkId)
             {
-                Department checkdepartment = departmentService.Get(selectedid);
-                if (checkdepartment.Id != null)
+                Department updateDepartment = departmentService.Get(departmentId);
+                if (updateDepartment != null)
                 {
-                     Departmentcapacityagain2: Helper.consolemessage(ConsoleColor.Cyan, ConsoleMessages.writeDepartmentCapacity);
-                    string maxcapacity = Console.ReadLine();
-                    int selectedcapacity;
-                    bool endcapacity = int.TryParse(maxcapacity, out selectedcapacity);
-                    DepartmentNameAgain: Helper.consolemessage(ConsoleColor.Cyan, ConsoleMessages.writeDepartmentName);
-                    string departmentName = Console.ReadLine();
+                    Departmentcapacityagain: Helper.consolemessage(ConsoleColor.Cyan, ConsoleMessages.writeDepartmentCapacity);
+                    string selectedCapacity = Console.ReadLine();
+                    int departmentCapacity = 0;
+                    bool checkCapacity = int.TryParse(selectedCapacity, out departmentCapacity);
                     
-                    if (endcapacity)
+                    
+                    if (checkCapacity)
                     {
-                        Department department = new Department();
-                        if (departmentName != null)
+                        DepartmentNameAgain: Helper.consolemessage(ConsoleColor.Cyan, ConsoleMessages.writeDepartmentName);
+                        string departmentName = Console.ReadLine();
+                        Department checkDepartmentName = departmentService.Get(departmentName);
+                        if (checkDepartmentName == null)
                         {
-                            department.Name = departmentName;
+                            updateDepartment.Name = string.IsNullOrEmpty(departmentName) ? updateDepartment.Name: departmentName;
+                            updateDepartment.Capacity = departmentCapacity == 0 ? updateDepartment.Capacity : departmentCapacity;
                             
+                            Department newdepartment = departmentService.Update(updateDepartment, departmentId);
+                            
+                            Helper.consolemessage
+                            (ConsoleColor.Blue,
+                            $"Following Department Created\n {newdepartment.Id} {newdepartment.Name}  {newdepartment.Capacity}");
                         }
                         else
                         {
-                            Department olddepartment = departmentService.Get(selectedid);
-                            department.Name = olddepartment.Name;                        
-                        }
-                        if (selectedcapacity != null)
-                        {
-                            department.Capacity = selectedcapacity;
-                        }
-                        else
-                        {
-                            Department olddepartment = departmentService.Get(selectedid);
-                            department.Capacity = olddepartment.Capacity;
-                        }
-
-                        Department newdepartment = departmentService.Update(department, selectedid);
-                        if (department == null)
-                        {
-                            Helper.consolemessage(ConsoleColor.DarkRed, "Within the database same Department already exist");
+                            Helper.consolemessage(ConsoleColor.DarkRed, ConsoleMessages.sameDepartmentExist);
                             goto DepartmentNameAgain;
                         }
-                        Helper.consolemessage
-                        (ConsoleColor.Blue,
-                        $"Following Department Created\n {newdepartment.Id} {newdepartment.Name}  {newdepartment.Capacity}");
+
+                        
                     }
                     else
                     {
-                        Helper.consolemessage(ConsoleColor.DarkRed, "Provided Capacity is Wrong use digits instead of letters");
-                        goto Departmentcapacityagain2;
+                        Helper.consolemessage(ConsoleColor.DarkRed, ConsoleMessages.wrongCapacity);
+                        goto Departmentcapacityagain;
                     }
                     
                 }
-                
+                else
+                {
+                    Helper.consolemessage(ConsoleColor.DarkRed, ConsoleMessages.departmentWithThisIdNotExist);
+                    goto DepartmentIdAgain;
+                }
 
             }
             else
@@ -151,7 +145,6 @@ namespace Company.Controller
                 goto DepartmentIdAgain;
             }
         }
-
         public void GetAllDepartments()
         {
             Helper.consolemessage(ConsoleColor.DarkCyan, "Following Departments exist in DataBase");

@@ -22,7 +22,7 @@ namespace Service.Interfaces
         List<Employee> GetByDepartmentId(int departmentId);
         List<Employee> GetByDepartmentName(Department departmentName);
 
-        int GetAllEmployeeCount(List<Employee> employees);
+        int GetAllEmployeeCount();
         int GetEmployeeCountByDepartment();
 
     }

@@ -198,11 +198,11 @@ namespace Service.Service
             }
         }
 
-        public int GetAllEmployeeCount(List<Employee> employees)
+        public int GetAllEmployeeCount()
         {
             try
             {
-                return employeeRepository.Count(employees);
+                return employeeRepository.Count();
                  
             }
             catch (Exception)

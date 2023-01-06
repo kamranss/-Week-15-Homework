@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Utilities.Exceptions;
+using Utilities.Helpers;
 
 namespace Service.Service
 {
@@ -39,6 +41,27 @@ namespace Service.Service
 
                 throw;
             }
+        }
+        public Department Update(Department department, int id)
+        {
+
+            try
+            {
+                Department updatedepartment = departmentRepository.Get(e => e.Id == department.Id);
+                if (updatedepartment != null)
+                {
+                    departmentRepository.Update(updatedepartment);
+                    return updatedepartment;
+                }
+                throw new DepartmentExcepton(ConsoleMessages.sameDepartmentExist);
+            }
+            catch (DepartmentExcepton message)
+            {
+
+                Console.WriteLine(message.Message);
+                return null;
+            }
+
         }
 
         public Department Delete(int Id)
@@ -101,26 +124,7 @@ namespace Service.Service
             }
         }
 
-        public Department Update(Department department, int id)
-        {
-            Department updatedepartment = departmentRepository.Get(e => e.Id == department.Id);
-            if (updatedepartment !=null)
-            {
-                Department updatedepartment1 = departmentRepository.Get(e => e.Name == department.Name);
-                if (updatedepartment == null)
-                {
-
-                    departmentRepository.Update(updatedepartment);
-                    return updatedepartment;
-                }
-                return null;
-            }
-            else
-            {
-                return null;
-            }
-           
-        }
+       
 
         public List<Department> GetALL()
         {

@@ -16,6 +16,6 @@ namespace DataAccess.Interfaces
         T Get(Predicate<T> filter = null);
         List<T> GetAll(Predicate<T> filter = null);
 
-        int Count(List<T> entity);
+        int Count();
     }
 }
