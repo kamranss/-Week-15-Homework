@@ -11,7 +11,7 @@ namespace Service.Interfaces
     {
         Employee Create(Employee employee, string departmentName);
         Employee Update(int id, Employee employee, string departmentName);
-        Employee Delete(int id, Employee employee);
+        Employee Delete( Employee employee);
         Employee GetById(int id);
         Employee GetByAge(int age);
         Employee GetByName(string name);

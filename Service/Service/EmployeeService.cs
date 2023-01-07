@@ -75,7 +75,7 @@ namespace Service.Service
             return null;
         }
 
-        public Employee Delete(int id, Employee employee)
+        public Employee Delete( Employee employee)
         {
             Employee deleteemployee = employeeRepository.Get(e => e.Id == Id);
             if (deleteemployee != null)

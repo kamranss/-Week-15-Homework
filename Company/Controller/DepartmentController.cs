@@ -13,9 +13,11 @@ namespace Company.Controller
     public class DepartmentController
     {
         DepartmentService departmentService;
+        EmployeeService employeeService;
         public DepartmentController()
         {
             departmentService = new DepartmentService();
+            employeeService = new EmployeeService();
         }
 
         public  void CreateDepartment()
@@ -54,25 +56,42 @@ namespace Company.Controller
             try
             {
                 WriteidAgain: Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.writeDepartmentId);
-                string id = Console.ReadLine();
-                int endId;
-                bool selectedId = int.TryParse(id, out endId);
-                if (selectedId)
+                string selectedId = Console.ReadLine();
+                int departmentId;
+                bool checkId = int.TryParse(selectedId, out departmentId);
+                if (checkId)
                 {
-                    if (departmentService.Delete(endId) != null)
+                    Department department = departmentService.Get(departmentId);
+                    if ( department!= null)
                     {
-                        departmentService.Delete(endId);
-                        Helper.consolemessage(ConsoleColor.Green, $" id {endId} {ConsoleMessages.departmentDeleted}");
-                        return;
+                        List<Employee> employeeList = employeeService.GetAll();
+                        int count = 0;
+                        foreach (var item in employeeList)
+                        {
+                            if (item.Department == department)
+                            {
+                                count++;
+                            }
+                        }
+                        if (count == 0)
+                        {
+                            departmentService.Delete(departmentId);
+                            Helper.consolemessage(ConsoleColor.Green, $" id {departmentId} {ConsoleMessages.departmentDeleted}");
+                            return;
+                        }
+                        else
+                        {
+                            Helper.consolemessage(ConsoleColor.DarkRed, ConsoleMessages.cannotDeleteDepartment);
+                        }
                     }
                     else
                     {
-                        Helper.consolemessage(ConsoleColor.Blue, ConsoleMessages.departmentWithThisIdNotExist);
+                        Helper.consolemessage(ConsoleColor.DarkRed, ConsoleMessages.departmentWithThisIdNotExist);
                     }
                 }
                 else
                 {
-                    Helper.consolemessage(ConsoleColor.DarkGreen, ConsoleMessages.wrongId);
+                    Helper.consolemessage(ConsoleColor.DarkRed, ConsoleMessages.wrongId);
                     goto WriteidAgain;
                 }
             }
@@ -219,11 +238,22 @@ namespace Company.Controller
         }
         public void GetAllDepartments()
         {
-            Helper.consolemessage(ConsoleColor.DarkCyan, "Following Departments exist in DataBase");
-            foreach (var item in departmentService.GetALL())
+            
+            List<Department> departmentList =  departmentService.GetALL();
+            if (departmentList != null)
             {
-                Helper.consolemessage(ConsoleColor.DarkGray, $"{item.Id} {item.Name} {item.Capacity}");
+                Helper.consolemessage(ConsoleColor.DarkCyan, "Following Departments exist in DataBase");
+                foreach (var item in departmentService.GetALL())
+                {
+                    Helper.consolemessage(ConsoleColor.DarkGray, $"{item.Id} {item.Name} {item.Capacity}");
+                }
             }
+            else
+            {
+                Helper.consolemessage(ConsoleColor.DarkGray, $"There is no department in Database");
+            }
+
+            
         }
         public void GetAllDepartmentsName()
         {

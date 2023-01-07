@@ -15,14 +15,14 @@ namespace Utilities.Helpers
         CreateDepartment =1,
         UpdateDepartment,
         DeleteDepartment,
-        GetDepartmentbyId,
+        GetDepartmentById,
         GetDepartmentByName,
-        GetDepartmentbyCapacity,
+        GetDepartmentByCapacity,
         GetAllDepartment,
-        GetAllDepartmentbyName,
         CreateEmployee,
         GetAllEmployeesList,
         UpdateEmployee,
+        DeleteEmployee,
         CountAllEmployee,
         ExitProgram
         }

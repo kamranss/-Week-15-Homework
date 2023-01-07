@@ -38,9 +38,11 @@ namespace Utilities.Helpers
         public const string writedepartmentIdAgain = "The Department not found Please Write another Id";
         public const string WriteDepartmentNameAgain = "Department not found please try again";
         public const string writeDepartmentCapacityAgain = "Department not found please try again";
-        
+        public const string cannotDeleteDepartment = $"You cannot Delete This Department. There are Employee whihc assigned to this Department";
 
-        public const string sameDepartmentExist = 
+
+
+    public const string sameDepartmentExist = 
         "Within the database there is existing Department with the same Name.\n " +
         "You should choose another Name";
 
@@ -60,12 +62,14 @@ namespace Utilities.Helpers
         public const string writeEmployeeAge = "Please write employee Age\n";
         public const string writeEmployeeAddress = "Please write employee Address";
         public const string writeEmployeeDepartmentName = "Please write Department name which employee will be assigned";
+        public const string writeEmployeeIdForDelete = "Please write Employee id in order to Delete";
+        
 
         public const string employeeAgeWrong = "Given age is wrong use digits intead of letters";
         public const string employeeIdWrong = "Given Id is wrong you should use digits";
         public const string employeeNotExist = "There is not any Employee which assoiated with provided id";
         public const string employeeNotCreated = "Something Went Wrong --- > Employee not created";
-        public const string writeEmployeeIdForDelete = "Write Department Id which you want to delete";       
+        public const string writedepartmentIdForDelete = "Write Department Id which you want to delete";       
         public const string employeeDeleted = "Department deleted";
         public const string employeeUpdated = "Employee Updated";
         public const string EmployeeIdWrong = "Given Age Is wrong Please write again -Use digits instead of letters";
