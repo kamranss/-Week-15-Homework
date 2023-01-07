@@ -215,5 +215,26 @@ namespace Company.Controller
             Helper.consolemessage(ConsoleColor.Green, " The number of employees in Database displayed");
             Console.WriteLine(employeeService.GetAllEmployeeCount());
         }
+        public void DeleteEmployee()
+        {
+            GetAllEmployees();
+            WriteEmployeeIdAgain: Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.writeEmployeeIdForDelete);
+            string selectedId = Console.ReadLine();
+            int id;
+            bool convertedId = int.TryParse(selectedId, out id);
+            if (convertedId)
+            {
+                Employee findEmployee = employeeService.GetById(id);
+                if (findEmployee != null)
+                {
+                    employeeService.Delete(findEmployee);
+                }
+                else
+                {
+                    Helper.consolemessage(ConsoleColor.Red, "Employee not found Please try again");
+                    return;
+                }
+            }
+        }
     }
 }

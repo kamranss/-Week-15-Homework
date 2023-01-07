@@ -147,16 +147,75 @@ namespace Company.Controller
         }
         public void GetDepartmentById()
         {
-            DepartmentIdAgain: Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.writedepartmentIdForUpdate);
+            WriteDepartmentIDAgain: Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.writedepartmentIdForUpdate);
             string selectedId = Console.ReadLine();
             int departmentId;
             bool checkId = int.TryParse(selectedId, out departmentId);
             if (checkId)
             {
-                
+
+                Department department = departmentService.Get(departmentId);
+                if (departmentId != null)
+                {
+                    department.ShowDepartmentInfo();
+                }
+                else
+                {
+                    Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.writedepartmentIdAgain);
+                    goto WriteDepartmentIDAgain;
+                }
                 
             }
+            else
+            {
+                Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.departmentNotExist);
+                goto WriteDepartmentIDAgain;
+            }
 
+        }
+        public void GetDepartmentByName()
+        {
+            WriteDepartmentNameAgain: Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.writedepartmentIdForUpdate);
+            string departmentname = Console.ReadLine();
+
+            Department department = departmentService.Get(departmentname);
+            if (department != null)
+            {
+                department.ShowDepartmentInfo();
+            }
+            else
+            {
+                Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.WriteDepartmentNameAgain);
+                goto WriteDepartmentNameAgain;
+            }
+
+        }
+        public void GetDepartmentByCapacity()
+        {
+            WriteDepartmentCapacityAgain: Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.writedepartmentIdForUpdate);
+            string selectedCapacity = Console.ReadLine();
+            int departmentCapacity;
+            bool checkCapacity = int.TryParse(selectedCapacity, out departmentCapacity);
+            if (checkCapacity)
+            {
+
+                Department department = departmentService.Get(departmentCapacity);
+                if (departmentCapacity != null)
+                {
+                    department.ShowDepartmentInfo();
+                }
+                else
+                {
+                    Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.writeDepartmentCapacityAgain);
+                    goto WriteDepartmentCapacityAgain;
+                }
+
+            }
+            else
+            {
+                Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.departmentNotExist);
+                goto WriteDepartmentCapacityAgain;
+            }
         }
         public void GetAllDepartments()
         {

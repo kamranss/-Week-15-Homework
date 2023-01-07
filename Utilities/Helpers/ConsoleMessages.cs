@@ -17,12 +17,14 @@ namespace Utilities.Helpers
        "5 - GetDepartmentbyName:\n" +
        "6 - GetDepartmentbyCapacity:\n" +
        "7 - GetAllDepartment:\n" +
-       "8 - GetdepartmentbyName:\n" +
-       "9 - CreateEmployee:\n"+
-       "10 - GetAllEmployeesList:\n" +
-       "11 - UpdateEmployee:\n" +
-       "12 - CountAllEmployee:\n"+ 
-       "13 - ExitProgram:";
+       "8 - CreateEmployee:\n"+
+       "9 - GetAllEmployeesList:\n" +
+       "10 - UpdateEmployee:\n" +
+       "11 - CountAllEmployee:\n"+
+       "12 - CountAllEmployee:\n" +
+       "13 - CountAllEmployee:\n" +
+       "14 - CountAllEmployee:\n" +
+       "12 - ExitProgram:";
 
         #region Messages for Department
         public const string writeDepartmentName =
@@ -33,6 +35,10 @@ namespace Utilities.Helpers
         public const string writedepartmentIdForUpdate = "Write Department Id which you want to update";
         public const string writeDepartmentCapacity = "Please write Department capacity";
         public const string departmentCapacityFull = "Department Capacity full Please choose another Department";
+        public const string writedepartmentIdAgain = "The Department not found Please Write another Id";
+        public const string WriteDepartmentNameAgain = "Department not found please try again";
+        public const string writeDepartmentCapacityAgain = "Department not found please try again";
+        
 
         public const string sameDepartmentExist = 
         "Within the database there is existing Department with the same Name.\n " +
