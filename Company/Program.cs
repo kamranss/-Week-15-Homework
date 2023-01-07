@@ -27,7 +27,7 @@ EmployeeController employeeController = new EmployeeController();
 bool whileresult = true;
 while (whileresult)
 {
-    Helper.consolemessage(ConsoleColor.DarkMagenta, ConsoleMessages.Options);
+    Helper.consolemessage(ConsoleColor.DarkYellow, ConsoleMessages.Options);
     string menuoption = Console.ReadLine();
     int selectedbutton;
     bool selection = int.TryParse(menuoption, out selectedbutton);
