@@ -210,7 +210,7 @@ namespace Company.Controller
             }
            
         }
-        public void countemployee()
+        public void CountAllEmployee()
         {
             employeeService.GetAllEmployeeCount();
         }

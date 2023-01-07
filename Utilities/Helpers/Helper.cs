@@ -23,6 +23,7 @@ namespace Utilities.Helpers
         CreateEmployee,
         GetAllEmployeesList,
         UpdateEmployee,
+        CountAllEmployee,
         ExitProgram
         }
         #endregion

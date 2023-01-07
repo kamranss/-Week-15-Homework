@@ -60,6 +60,9 @@ while (whileresult)
             case (int)Helper.Buttons.UpdateEmployee:
                 employeeController.UpdateEmployee();
                 break;
+            case (int)Helper.Buttons.CountAllEmployee:
+                employeeController.CountAllEmployee();
+                break;
             case (int)Helper.Buttons.ExitProgram:
                 whileresult = false;
                 break;

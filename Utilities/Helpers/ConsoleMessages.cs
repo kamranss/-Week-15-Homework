@@ -21,6 +21,7 @@ namespace Utilities.Helpers
        "9 - CreateEmployee:\n"+
        "10 - GetAllEmployeesList:\n" +
        "11 - UpdateEmployee:\n" +
+       "12 - CountAllEmployee:\n"+ 
        "12 - ExitProgram:";
 
         #region Messages for Department
