@@ -72,7 +72,9 @@ while (whileresult)
             case (int)Helper.Buttons.CountAllEmployee:
                 employeeController.CountAllEmployee();
                 break;
-
+            case (int)Helper.Buttons.GetEmployeeById:
+                employeeController.GetEmployeeById();
+                break;                
             case (int)Helper.Buttons.ExitProgram:
                 whileresult = false;
                 break;

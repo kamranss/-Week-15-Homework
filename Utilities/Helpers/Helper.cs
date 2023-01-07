@@ -24,6 +24,7 @@ namespace Utilities.Helpers
         UpdateEmployee,
         DeleteEmployee,
         CountAllEmployee,
+        GetEmployeeById,
         ExitProgram
         }
         #endregion

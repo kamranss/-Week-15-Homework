@@ -240,7 +240,12 @@ namespace Company.Controller
         {
             
             List<Department> departmentListInfo =  departmentService.GetALL();
-            if (departmentListInfo != null)
+            int count = 0;
+            foreach (var item in departmentListInfo)
+            {
+                count++;
+            }
+            if (count!=0) 
             {
                 Helper.consolemessage(ConsoleColor.DarkCyan, "Following Departments exist in DataBase");
                 foreach (var item in departmentService.GetALL())

@@ -21,9 +21,9 @@ namespace Utilities.Helpers
        "9 - GetAllEmployeesList:\n" +
        "10 - UpdateEmployee:\n" +
        "11 - CountAllEmployee:\n"+
-       "12 - CountAllEmployee:\n" +
-       "13 - CountAllEmployee:\n" +
-       "14 - CountAllEmployee:\n" +
+       "12 - GetEmployeeById:\n" +
+       "13 - aa:\n" +
+       "14 - aa:\n" +
        "12 - ExitProgram:";
 
         #region Messages for Department
@@ -39,17 +39,12 @@ namespace Utilities.Helpers
         public const string WriteDepartmentNameAgain = "Department not found please try again";
         public const string writeDepartmentCapacityAgain = "Department not found please try again";
         public const string cannotDeleteDepartment = $"You cannot Delete This Department. There are Employee whihc assigned to this Department";
-
-
-
-    public const string sameDepartmentExist = 
+        public const string sameDepartmentExist = 
         "Within the database there is existing Department with the same Name.\n " +
         "You should choose another Name";
-
         public const string departmentDeleted = "Department deleted";
         public const string departmentNotExist = "Given Department is not exist within the Database";
         public const string departmentWithThisIdNotExist = "Department with given Id not exist in Database";
-
         public static string wrongCapacity = "The capacity which you have given is wrong you shoud try again (Note use digits instead of letters";
         public static string wrongId = " The Id whihc you have written was wrong you should write again";
         #endregion

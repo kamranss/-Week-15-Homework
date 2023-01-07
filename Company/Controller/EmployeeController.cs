@@ -105,16 +105,30 @@ namespace Company.Controller
 
         public void GetAllEmployees()
         {
-            Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.employeesList);
-            foreach (var item in employeeService.GetAll())
+            List<Employee> departmentListInfo = employeeService.GetALL();
+            int count = 0;
+            foreach (var item in departmentListInfo)
             {
-                Helper.consolemessage(ConsoleColor.Blue,
-                  $"Employee Id - {item.Id} " + 
-                  $"Employee Name - {item.Name}  " +
-                  $"Employee Surname - {item.Surname} " +
-                  $"Department Name - {item.Department.Name} " +
-                  $"Employee Address - {item.Address}");
+                count++;
             }
+            if (count!=0)
+            {
+                Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.employeesList);
+                foreach (var item in employeeService.GetAll())
+                {
+                    Helper.consolemessage(ConsoleColor.Blue,
+                      $"Employee Id - {item.Id} " +
+                      $"Employee Name - {item.Name}  " +
+                      $"Employee Surname - {item.Surname} " +
+                      $"Department Name - {item.Department.Name} " +
+                      $"Employee Address - {item.Address}");
+                }
+            }
+            else
+            {
+                Helper.consolemessage(ConsoleColor.DarkRed, "There is no Employee in Database");
+            }
+            
         }
         public void UpdateEmployee()
         {
@@ -235,6 +249,35 @@ namespace Company.Controller
                     return;
                 }
             }
+        }
+        public void GetEmployeeById()
+        {
+
+            Helper.consolemessage(ConsoleColor.Green, "Write Employee Id");
+        
+            string selectedId = Console.ReadLine();
+            int id;
+            bool convertedId = int.TryParse(selectedId, out id);
+            Employee findEmployee = employeeService.GetById(id);
+
+            if (findEmployee != null)
+            {
+                employeeService.GetById(id);
+                foreach (var item in employeeService.GetAll())
+                {
+                    Helper.consolemessage(ConsoleColor.Blue,
+                      $"Employee Id - {item.Id} " +
+                      $"Employee Name - {item.Name}  " +
+                      $"Employee Surname - {item.Surname} " +
+                      $"Department Name - {item.Department.Name} " +
+                      $"Employee Address - {item.Address}");
+                }
+            }
+            else
+            {
+                Helper.consolemessage(ConsoleColor.Green, "Employee Not Found");
+            }
+            
         }
     }
 }
