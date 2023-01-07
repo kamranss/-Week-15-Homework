@@ -37,41 +37,66 @@ namespace Company.Controller
             writeEmployeeAge: Helper.consolemessage(ConsoleColor.Cyan, ConsoleMessages.writeEmployeeAge);
             string selectedAge = Console.ReadLine();
             int Age;
-            bool endage = int.TryParse(selectedAge, out Age);
-            departmentController1 = new DepartmentController();
-            departmentController1.GetAllDepartmentsName();
-            departmentNameAgain: Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.writeEmployeeDepartmentName);
-            string departmentName = Console.ReadLine();
-
-            if (endage)
+            bool checkAge = int.TryParse(selectedAge, out Age);
+            
+            if (checkAge)
             {
-                Employee newemployee = new Employee();
-                newemployee.Name = name;
-                newemployee.Surname = surname;
-                newemployee.Age = Age;
-                newemployee.Address = address;
-                Employee employee = employeeService.Create(newemployee, departmentName);
-                if (employee.Name == name)
+                departmentController1 = new DepartmentController();
+                departmentController1.GetAllDepartmentsName();
+                departmentNameAgain: Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.writeEmployeeDepartmentName);
+                string departmentName = Console.ReadLine();
+                Department founddepartment = departmentService1.Get(departmentName);
+                if (founddepartment != null)
                 {
-                   Helper.consolemessage(ConsoleColor.Blue,
-                   $"Following Employee Created\n " +
-                   $"{newemployee.Id} " +
-                   $"{newemployee.Name}  " +
-                   $"{newemployee.Surname} " +
-                   $"{newemployee.Age} " +
-                   $"{newemployee.Department.Name} " +
-                   $"{newemployee.Address}");
-                   return;                   
+                    int countCapacity = 0;
+                    foreach (var item in employeeRepository.GetAll())
+                    {
+                        if (item.Department == founddepartment)
+                        {
+                            countCapacity++;
+                        }
+                    }
+                    if (countCapacity < founddepartment.Capacity)
+                    {
+                        Employee newemployee = new Employee();
+                        newemployee.Name = name;
+                        newemployee.Surname = surname;
+                        newemployee.Age = Age;
+                        newemployee.Address = address;
+                        Employee employee = employeeService.Create(newemployee, departmentName);
+                        if (employee.Name == name)
+                        {
+                            Helper.consolemessage(ConsoleColor.Blue,
+                            $"Following Employee Created\n " +
+                            $"{newemployee.Id} " +
+                            $"{newemployee.Name}  " +
+                            $"{newemployee.Surname} " +
+                            $"{newemployee.Age} " +
+                            $"{newemployee.Department.Name} " +
+                            $"{newemployee.Address}");
+                            return;
+                        }
+                        else
+                        {
+                            goto departmentNameAgain;
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        Helper.consolemessage(ConsoleColor.DarkRed, ConsoleMessages.departmentCapacityFull);
+                        goto departmentNameAgain;
+                    }
                 }
                 else
-                {                   
+                {
+                    Helper.consolemessage(ConsoleColor.DarkRed, ConsoleMessages.departmentNotExist);
                     goto departmentNameAgain;
-                    return;
-                }               
-            }
+                }
+            }                              
             else
             {
-                Helper.consolemessage(ConsoleColor.DarkRed, ConsoleMessages.employeeNotCreated);
+                Helper.consolemessage(ConsoleColor.DarkRed, ConsoleMessages.EmployeeIdWrong);
                 goto writeEmployeeAge;
                 return;
             }
@@ -105,59 +130,78 @@ namespace Company.Controller
                 {
                     writeDepartmentNameagain: Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.writeDepartmentName);
                     string departmentName = Console.ReadLine();
-                    Department department = departmentService1.Get(departmentName);
-                    if (department != null)
+                    Department foundDepartment = departmentService1.Get(departmentName);
+                    if (foundDepartment != null)
                     {
-                        Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.writeEmployeeName);
-                        string name = Console.ReadLine();
-                        Helper.consolemessage(ConsoleColor.Cyan, ConsoleMessages.writeEmployeeSurname);
-                        string surname = Console.ReadLine();
-                        Helper.consolemessage(ConsoleColor.Cyan, ConsoleMessages.writeEmployeeAddress);
-                        string address = Console.ReadLine();
-                        writeEmployeeAgeAgain: Helper.consolemessage(ConsoleColor.Cyan, ConsoleMessages.writeEmployeeAge);
-                        string selectedAge = Console.ReadLine();
-                        int Age=0;
-                        bool convertedAge = int.TryParse(selectedAge, out Age);
-                        if (convertedAge)
+                        int countCapacity = 0;
+                        foreach (var item in employeeRepository.GetAll())
                         {
-                            updatedemployee.Age = Age== 0 ? updatedemployee.Age : Age;
-                            updatedemployee.Name = string.IsNullOrEmpty(name) ? updatedemployee.Name : name;
-                            updatedemployee.Surname = string.IsNullOrEmpty(surname) ? updatedemployee.Surname : surname;
-                            updatedemployee.Address = string.IsNullOrEmpty(address) ? updatedemployee.Address : address;
-
-                           
-                            
-                            employeeService.Update(id, updatedemployee, departmentName);
-                            Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.employeeUpdated);
-                            foreach (var item in employeeService.GetAll())
+                            if (item.Department == foundDepartment)
                             {
-                                Helper.consolemessage(ConsoleColor.Blue,
-                                $"Employee Id - {item.Id} " +
-                                $"Employee Name - {item.Name}  " +
-                                $"Employee Surname - {item.Surname} " +
-                                $"Department Name - {item.Department.Name} " +
-                                $"Employee Address - {item.Address}");
+                                countCapacity++;
                             }
+                        }
+                        if (countCapacity<foundDepartment.Capacity || foundDepartment.Name == departmentName)
+                        {
 
+                            Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.writeEmployeeName);
+                            string name = Console.ReadLine();
+                            Helper.consolemessage(ConsoleColor.Cyan, ConsoleMessages.writeEmployeeSurname);
+                            string surname = Console.ReadLine();
+                            Helper.consolemessage(ConsoleColor.Cyan, ConsoleMessages.writeEmployeeAddress);
+                            string address = Console.ReadLine();
+                            writeEmployeeAgeAgain: Helper.consolemessage(ConsoleColor.Cyan, ConsoleMessages.writeEmployeeAge);
+                            string selectedAge = Console.ReadLine();
+                            int Age = 0;
+                            bool convertedAge = int.TryParse(selectedAge, out Age);
+                            if (convertedAge)
+                            {
+                                updatedemployee.Age = Age == 0 ? updatedemployee.Age : Age;
+                                updatedemployee.Name = string.IsNullOrEmpty(name) ? updatedemployee.Name : name;
+                                updatedemployee.Surname = string.IsNullOrEmpty(surname) ? updatedemployee.Surname : surname;
+                                updatedemployee.Address = string.IsNullOrEmpty(address) ? updatedemployee.Address : address;
+
+
+
+                                employeeService.Update(id, updatedemployee, departmentName);
+                                Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.employeeUpdated);
+                                foreach (var item in employeeService.GetAll())
+                                {
+                                    Helper.consolemessage(ConsoleColor.Blue,
+                                    $"Employee Id - {item.Id} " +
+                                    $"Employee Name - {item.Name}  " +
+                                    $"Employee Surname - {item.Surname} " +
+                                    $"Department Name - {item.Department.Name} " +
+                                    $"Employee Address - {item.Address}");
+                                }
+
+                            }
+                            else
+                            {
+                                Helper.consolemessage(ConsoleColor.DarkRed, ConsoleMessages.employeeAgeWrong);
+                                goto writeEmployeeAgeAgain;
+                            }
                         }
                         else
                         {
-                            Helper.consolemessage(ConsoleColor.DarkRed, ConsoleMessages.employeeAgeWrong);
-                            goto writeEmployeeAgeAgain;
+                            Helper.consolemessage(ConsoleColor.DarkRed, ConsoleMessages.departmentCapacityFull);
+                            goto writeDepartmentNameagain;
                         }
+                        
                     }
                     else
                     {
                         Helper.consolemessage(ConsoleColor.DarkRed, ConsoleMessages.departmentNotExist);
                         goto writeDepartmentNameagain;
                     }
-                    
+
                 }
                 else
                 {
                     Helper.consolemessage(ConsoleColor.DarkRed, ConsoleMessages.employeeNotExist);
                     goto WriteEmployeeIdAgain;
                 }
+
             }
             else
             {

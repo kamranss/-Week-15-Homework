@@ -145,6 +145,19 @@ namespace Company.Controller
                 goto DepartmentIdAgain;
             }
         }
+        public void GetDepartmentById()
+        {
+            DepartmentIdAgain: Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.writedepartmentIdForUpdate);
+            string selectedId = Console.ReadLine();
+            int departmentId;
+            bool checkId = int.TryParse(selectedId, out departmentId);
+            if (checkId)
+            {
+                
+                
+            }
+
+        }
         public void GetAllDepartments()
         {
             Helper.consolemessage(ConsoleColor.DarkCyan, "Following Departments exist in DataBase");

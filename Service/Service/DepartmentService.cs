@@ -85,13 +85,19 @@ namespace Service.Service
         public Department Get(int id)
         {
             try
-            {
-                Department department = departmentRepository.Get(d => d.Id == id);
-                return department;
+            {               
+                if (true)
+                {
+                    Department department = departmentRepository.Get(d => d.Id == id);
+                    return department;
+                }
+                throw new DepartmentExcepton(ConsoleMessages.departmentNotExist);
             }
-            catch (Exception)
+           
+            catch (DepartmentExcepton message)
             {
 
+                Console.WriteLine(message.Message);
                 return null;
             }
         }

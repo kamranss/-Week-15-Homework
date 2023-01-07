@@ -45,13 +45,12 @@ while (whileresult)
             case (int)Helper.Buttons.DeleteDepartment:
                 departmentController.DeleteDepartment();
                 break;
-            case (int)Helper.Buttons.GetAllDepartment:
-                departmentController.GetAllDepartments();
-                break;
-            
             case (int)Helper.Buttons.GetDepartmentbyCapacity:
                 departmentController.GetAllDepartmentbyCapacity();
                 break;
+            case (int)Helper.Buttons.GetAllDepartment:
+                departmentController.GetAllDepartments();
+                break;         
             case (int)Helper.Buttons.CreateEmployee:
                 employeeController.CreateEmployee();
                 break;

@@ -31,6 +31,7 @@ namespace Utilities.Helpers
         public const string writeDepartmentId = "Write Department Id which you want to delete";
         public const string writedepartmentIdForUpdate = "Write Department Id which you want to update";
         public const string writeDepartmentCapacity = "Please write Department capacity";
+        public const string departmentCapacityFull = "Department Capacity full Please choose another Department";
 
         public const string sameDepartmentExist = 
         "Within the database there is existing Department with the same Name.\n " +
@@ -60,6 +61,7 @@ namespace Utilities.Helpers
         public const string writeEmployeeIdForDelete = "Write Department Id which you want to delete";       
         public const string employeeDeleted = "Department deleted";
         public const string employeeUpdated = "Employee Updated";
+        public const string EmployeeIdWrong = "Given Age Is wrong Please write again -Use digits instead of letters";
         
         #endregion
 
