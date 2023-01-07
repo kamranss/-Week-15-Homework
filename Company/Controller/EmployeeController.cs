@@ -212,7 +212,8 @@ namespace Company.Controller
         }
         public void CountAllEmployee()
         {
-            employeeService.GetAllEmployeeCount();
+            Helper.consolemessage(ConsoleColor.Green, " The number of employees in Database displayed");
+            Console.WriteLine(employeeService.GetAllEmployeeCount());
         }
     }
 }

@@ -23,14 +23,14 @@ namespace Company.Controller
             DepartmentNameAgain:  Helper.consolemessage(ConsoleColor.Green, ConsoleMessages.writeDepartmentName);
             string name = Console.ReadLine();
             Departmentcapacityagain: Helper.consolemessage(ConsoleColor.Cyan, ConsoleMessages.writeDepartmentCapacity);
-            string maxcapacity = Console.ReadLine();
-            int selectedcapacity;
-            bool endcapacity = int.TryParse(maxcapacity, out selectedcapacity);
-            if (endcapacity)
+            string selectedCapacity = Console.ReadLine();
+            int capacity;
+            bool checkCapacity = int.TryParse(selectedCapacity, out capacity);
+            if (checkCapacity)
             {
                 Department department = new Department();
                 department.Name = name;
-                department.Capacity = selectedcapacity;
+                department.Capacity = capacity;
                 Department newdepartment = departmentService.Create(department);
                 if (newdepartment == null)
                 {
@@ -141,7 +141,7 @@ namespace Company.Controller
             }
             else
             {
-                Helper.consolemessage(ConsoleColor.DarkRed, ConsoleMessages.wrongCapacity);
+                Helper.consolemessage(ConsoleColor.DarkRed, ConsoleMessages.wrongId);
                 goto DepartmentIdAgain;
             }
         }

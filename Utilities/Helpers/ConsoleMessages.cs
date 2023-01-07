@@ -22,7 +22,7 @@ namespace Utilities.Helpers
        "10 - GetAllEmployeesList:\n" +
        "11 - UpdateEmployee:\n" +
        "12 - CountAllEmployee:\n"+ 
-       "12 - ExitProgram:";
+       "13 - ExitProgram:";
 
         #region Messages for Department
         public const string writeDepartmentName =
