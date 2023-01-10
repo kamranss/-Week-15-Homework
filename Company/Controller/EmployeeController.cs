@@ -103,9 +103,10 @@ namespace Company.Controller
             
         }
 
+
         public void GetAllEmployees()
         {
-            List<Employee> departmentListInfo = employeeService.GetALL();
+            List<Employee> departmentListInfo = employeeService.GetAll();
             int count = 0;
             foreach (var item in departmentListInfo)
             {
